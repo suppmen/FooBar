@@ -6,3 +6,7 @@ p {
 .bg {
   background-color: hotpink;
 }
+
+body {
+  background-color: gray;
+}
