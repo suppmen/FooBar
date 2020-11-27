@@ -1,10 +1,13 @@
+
 import React, {useState, useEffect} from "react";
 import { getData, getBeers } from "./components/Rest";
 import Main from "./components/Main";
 import Loader from "./components/Loader";
 import Counter from"./components/Counter";
 import Queue from "./components/Queue";
+import Form from "./components/Form";
 import './App.scss';
+
 
 function App() {
   const [data, setData] = useState({});
@@ -13,6 +16,7 @@ function App() {
   useEffect(() => {
     getData(setData);
    getBeers(setBeers);
+
 
    setInterval(() => {
      getData(setData);
@@ -28,9 +32,12 @@ function App() {
       {data.bar && beers[0] && <Main data={data} beers={beers} />}
       <Counter/>
       {!data.bar && <Loader />}
+      <Form />
      
     </div>
+
   );
+
 }
 
 export default App;
