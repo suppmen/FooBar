@@ -1,13 +1,35 @@
-
-import './App.css';
+import React, {useState, useEffect} from "react";
+import { getData, getBeers } from "./components/Rest";
+import Main from "./components/Main";
+import Loader from "./components/Loader";
+import Counter from"./components/Counter";
+import Queue from "./components/Queue";
+import './App.scss';
 
 function App() {
-  return (
-   <div className="bg">
+  const [data, setData] = useState({});
+  const [beers, setBeers] = useState({});
 
-   <h2>Foo Bar</h2>
-   <p>close 22:00</p>
-   </div>
+  useEffect(() => {
+    getData(setData);
+   getBeers(setBeers);
+
+   setInterval(() => {
+     getData(setData);
+   }, 10000);
+      getData(setData);
+  }, []); 
+
+
+  return (
+    <div className="App">
+      {data.queue && <Queue data={data}/>}
+      {/* { data.bar && <Main data={data}/>} */}
+      {data.bar && beers[0] && <Main data={data} beers={beers} />}
+      <Counter/>
+      {!data.bar && <Loader />}
+     
+    </div>
   );
 }
 

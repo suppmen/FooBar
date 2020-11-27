@@ -1,0 +1,11 @@
+.App {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 100px;
+  padding: 0px;
+}
