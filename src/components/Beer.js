@@ -30,9 +30,10 @@ export default function Beer(props) {
 <h2>{props.name}</h2>
       <p>Category: {props.category}</p>
       <div className="add-remove-beer-buttons">
-      <button className="beer-cart-buttons" onClick={handleDecrement}>-</button>
-      {count}
-      <button className="beer-cart-buttons" onClick={handleIncrement}>+</button>
+      <button className="beer-cart-buttons" onClick={handleDecrement}> - </button>
+      <div className="addBeerNumber">
+       {count}</div>
+      <button className="beer-cart-buttons" onClick={handleIncrement}> + </button>
       </div>
       <input className="beer-cart-buttons"
       type="button"
