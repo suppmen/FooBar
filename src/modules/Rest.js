@@ -1,3 +1,4 @@
+
 const Url = "https://foo-bar-managers.herokuapp.com/"
 export function getData(callback) {
     fetch(Url, {

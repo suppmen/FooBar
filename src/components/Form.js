@@ -1,81 +1,54 @@
-import React, {useState} from "react";
-import ExpirationDate from "./ExpirationDate";
-
-
-
-
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import InputMask from "react-input-mask";
 
 export default function Form(){
-    const [cardNumber, setCardNumber]= useState("");
-    const [cvv, setCvv]= useState("");
-    const [name, setName]= useState("");
 
-    function clicked(e){
-        e.preventDefault();
+const { register, handleSubmit, errors } = useForm(); 
+  const onSubmit = (data) => {
+    console.log(data);
+  };
 
-        const payload = { 
-            name: "Row 26", 
-            amount: 5 }
+  return (
+    <form className="Form" onSubmit={handleSubmit(onSubmit)}>
 
-          postData(payload);
+<fieldset>
+      <legend>Payment Details</legend>
 
-    }
+      <div>
+        <label>Card Number</label>
+        <InputMask mask="9999-9999-9999-9999" maskPlaceholder=" " name="card_number" ref={register({ required: true})}/>
+        {errors.card_number && 'Card number is required.'}
+      </div>
 
-    function postData(payload){
-        console.log(payload);
-        fetch("https://foo-bar-managers.herokuapp.com/order", {
-            method: "post",
-            headers: {
-                "Content-Type": "application/json; charset=utf-8",
-              },
-            body: JSON.stringify(payload)
-          })
-            .then((e) => e.json())
-        
-    }
+      <div>
+        <label>Expire</label>
+        <InputMask mask="99/99" maskPlaceholder="MM/YY" name="expire" ref={register({ required: true })}/>
+        {errors.expire && 'Enter month and year'}
+      </div>
+     
+       <div>
+         <label>CVV</label>
+       <input name="cvv"  ref={register({ required: true, maxLength: 3, minLength:3, pattern: /\d+/})} />
+       {errors.cvv && 'Enter a number of three digits.'}
+       </div>
 
-  
+       {/* <div>
+         <label>CVV</label>
+         <InputMask mask="999" maskPlaceholder="cvv" name="cvv"  ref={register({ required: true})} />
+         {errors.cvv && 'Enter a number of three digits.'}
+       </div> */}
 
+      <div>
+        <label>Titular name</label>
+        <input name="name" ref={register({ required: true })} /> 
+        {errors.name && 'Titular name is required.'}
+      </div>
 
-
-    return(
-        <div>
-            
-        <form onSubmit={clicked} className="Form">
-            <fieldset> 
-                <legend>Payment Details</legend>
-            <div>
-                <label>Card Number
-                    <input type="text" name="cardNumber" id="cardNumber" value={cardNumber} onInput={e=>setCardNumber(e.target.value)} required/>
-                </label>
-            </div>
-            <div>
-                
-                <ExpirationDate  />
-              
-            </div>
-           
-          
-            <div>
-                <label>CVV
-                    <input type="text" name="cvv" id="cvv" value={cvv} onInput={e=>setCvv(e.target.value)} />
-                </label>
-            </div>
-            <div>
-                <label>Titular Name
-                    <input type="text" name="name" id="name" value={name} onInput={e=>setName(e.target.value)} />
-                </label>
-            </div>
-           
-
-            </fieldset>
-        </form>
-        <div>
-                 <button type="submit" onClick={clicked}>Save</button>
-                 <button>Cancel</button>
-            </div>
-        </div>
-
-    )
+      <div>
+          <input type="submit" />
+      </div>
+      </fieldset>
+    </form>
+  );
 }
-
