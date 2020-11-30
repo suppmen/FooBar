@@ -1,19 +1,32 @@
 
 import React, {useState} from "react";
 import Popup from './Popup';
+import App from "../App";
 
 // From https://github.com/cluemediator/react-popup
 
 export default function Beer(props) {
 
+  function editCartItem(itemName, count){
+    const item = {
+      itemName,
+      count
+    } 
+    console.log(itemName, count);
+   props.editCartItems(item);
+  }
+
   const [count, setCount]= useState(0);
 
   const handleIncrement = ()=>{
     setCount(count + 1);
+    editCartItem(props.name, count);
+
     }
 
     const handleDecrement = ()=>{
         setCount( count - 1);  
+        editCartItem(props.name, count);
     }
 
 
