@@ -7,14 +7,22 @@ import Popup from './Popup';
 export default function Beer(props) {
 
   const [count, setCount]= useState(0);
+  
 
   const handleIncrement = ()=>{
     setCount(count + 1);
     }
 
+    const [isDis, setIsDis] = useState(false);
     const handleDecrement = ()=>{
+      if (count === 0) {
+        setIsDis(!isDis)
+      } else {
         setCount( count - 1);  
-    }
+      }
+      }
+    
+  
 
 
     const [isOpen, setIsOpen] = useState(false);
