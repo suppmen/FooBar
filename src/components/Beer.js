@@ -25,19 +25,21 @@ export default function Beer(props) {
 
 
   return (
-    <article>
-      <h2>{props.name}</h2>
-      <p>Category: {props.category}</p>
+    <article className="BeersList">
 
-      <button onClick={handleIncrement}>+</button>
+<h2>{props.name}</h2>
+      <p>Category: {props.category}</p>
+      <div className="add-remove-beer-buttons">
+      <button className="beer-cart-buttons" onClick={handleDecrement}>-</button>
       {count}
-      <button onClick={handleDecrement}>-</button>
-     
-      <input
+      <button className="beer-cart-buttons" onClick={handleIncrement}>+</button>
+      </div>
+      <input className="beer-cart-buttons"
       type="button"
       value="See Details"
       onClick={togglePopup}
     />
+    
     {isOpen && <Popup
       content={<>
         <b>{props.name}</b>

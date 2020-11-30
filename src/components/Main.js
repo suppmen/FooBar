@@ -9,7 +9,7 @@ export default function Main(props) {
 
       <main>
         {beerArray.map((beer) => {
-          return <Beer key={beer.name} {...beer}/>;
+          return <Beer key={beer} {...beer}/>;
         })}
       </main>
   );

@@ -4,10 +4,11 @@ import Main from "../components/Main";
 
 export default function BeersList(props) {
     return(
-      <section>
-        <h2>Beers List</h2>
-        {<Main data={props.data} beers={props.beers} />}
-     
+      <section className="beerListCenter">
+        <h2 >Beeers List</h2>
+        
+        <Main beers={props.beers} />
+    
       </section>
     ) 
   }
