@@ -38,8 +38,8 @@ export default function Beer(props) {
 
   return (
     <article>
-      <h2>{props.name}</h2>
-      <p>Category: {props.category}</p>
+      <h2>{props.beer}</h2>
+      {/* <p>Category: {props.category}</p> */}
 
       <button onClick={handleIncrement}>+</button>
       {count}

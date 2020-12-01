@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import Main from "../components/Main";
+import BeerList from "../components/BeerList";
 
-export default function BeersList(props) {
+export default function Shop(props) {
   return (
     <section>
       <h2>Beers List</h2>
       {
-        <Main
+        <BeerList
           data={props.data}
           cartItems={props.cartItems}
           editCartItems={props.editCartItems}
