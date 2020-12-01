@@ -11,7 +11,7 @@ function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
-
+  console.log(cartItems);
   function editCartItems(name, modifier) {
     const nextItems = cartItems.map((item) => {
       if (item.name === name) {
