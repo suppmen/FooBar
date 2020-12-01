@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getData } from "./modules/Rest";
+import { getData, getBeers } from "./modules/Rest";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -8,61 +8,27 @@ import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function App() {
-  // const [data, setData] = useState({});
+  const [beers, setBeers] = useState([]);
+  const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
-  function editCartItems(item) {
-    let nextState = cartItems.concat(item);
-    console.log(nextState, "mext state items");
-    // let newItems;
-    setCartItems(nextState);
-
-    // if (cartItems.length > 1) {
-    //   nextState.forEach((e, index) => {
-    //     let counter = 0;
-    //     let currentElement = nextState[counter];
-    //     for (let j = index; j < nextState.length - 1; j++) {
-    //       let nextElement = nextState[j + 1];
-    //       if (currentElement.itemName === nextElement.itemName) {
-    //         console.log(nextElement, currentElement, "double item");
-    //         newItems = nextState.filter((beer) => {
-    //           return beer.count === nextElement.count;
-    //         });
-
-    //         console.log(newItems, "new items");
-    //       } else {
-    //       }
-    //     }
-    //   });
-    //   let filter = nextState.filter((e) => {
-    //     if (newItems.length > 1) {
-    //       return e.itemName !== newItems[0].itemName;
-    //     }
-    //   });
-    //   nextState = filter.concat(newItems);
-    //   setCartItems(nextState);
-    // } else {
-    //   setCartItems(nextState);
-    // }
-
-    // console.log(newItems, "new items");
-    console.log("cartItems is:", cartItems);
+  function editCartItems(name, modifier) {
+    const nextItems = cartItems.map((item) => {
+      if (item.name === name) {
+        item.amount += modifier;
+      }
+      return item;
+    });
+    setCartItems(nextItems);
   }
 
-  // useEffect(() => {
-  //   getData(setData);
-  //   // getBeers(setBeers);
-
-  //   setInterval(() => {
-  //     getData(setData);
-  //   }, 10000);
-  //   getData(setData);
-  // }, []);
+  useEffect(() => {
+    getData(setData, setCartItems);
+    getBeers(setBeers);
+  }, []);
 
   return (
     <div className="App">
-      {/* {!data.bar && <Loader />} */}
-
       <Router>
         <div>
           <nav>
@@ -85,7 +51,8 @@ function App() {
           <Switch>
             <Route path="/shop">
               <Shop
-                // data={data}
+                data={data}
+                beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
               />

@@ -3,22 +3,9 @@ import Beer from "./Beer";
 import { getBeers, getData } from "../modules/Rest";
 
 export default function BeerList(props) {
-  const [beers, setBeers] = useState([]);
-  const [data, setData] = useState({});
-
-  const beerItemsArray = data.taps;
+  const beerItemsArray = props.cartItems;
 
   console.log(beerItemsArray, "beerItemsArray in beer list");
-
-  useEffect(() => {
-    getData(setData);
-    getBeers(setBeers);
-
-    // setInterval(() => {
-    //   getData(setData);
-    // }, 10000);
-    // getData(setData);
-  }, []);
 
   return (
     <main>
@@ -28,8 +15,7 @@ export default function BeerList(props) {
             <Beer
               key={item.id}
               {...item}
-              beers={beers}
-              cartItems={props.cartItems}
+              data={props.data}
               editCartItems={props.editCartItems}
             />
           );
