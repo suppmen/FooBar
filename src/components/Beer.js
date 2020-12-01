@@ -5,6 +5,11 @@ import App from "../App";
 // From https://github.com/cluemediator/react-popup
 
 export default function Beer(props) {
+  const beerDetailsArray = props.beers.filter(
+    (beer) => beer.name === props.beer
+  );
+  const beerDetails = { ...beerDetailsArray[0] };
+  console.log(beerDetails, "beerDetails in beer");
   function editCartItem(itemName, count) {
     const item = {
       itemName,
@@ -39,7 +44,7 @@ export default function Beer(props) {
   return (
     <article>
       <h2>{props.beer}</h2>
-      {/* <p>Category: {props.category}</p> */}
+      {beerDetails && <p>Category: {beerDetails.category}</p>}
 
       <button onClick={handleIncrement}>+</button>
       {count}
