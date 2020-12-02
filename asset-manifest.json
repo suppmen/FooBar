@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/FooBar/static/css/main.5e456970.chunk.css",
-    "main.js": "/FooBar/static/js/main.bafbe514.chunk.js",
-    "main.js.map": "/FooBar/static/js/main.bafbe514.chunk.js.map",
+    "main.js": "/FooBar/static/js/main.f859b83b.chunk.js",
+    "main.js.map": "/FooBar/static/js/main.f859b83b.chunk.js.map",
     "runtime-main.js": "/FooBar/static/js/runtime-main.5732fbf6.js",
     "runtime-main.js.map": "/FooBar/static/js/runtime-main.5732fbf6.js.map",
-    "static/js/2.dd17e1ee.chunk.js": "/FooBar/static/js/2.dd17e1ee.chunk.js",
-    "static/js/2.dd17e1ee.chunk.js.map": "/FooBar/static/js/2.dd17e1ee.chunk.js.map",
+    "static/js/2.d139734a.chunk.js": "/FooBar/static/js/2.d139734a.chunk.js",
+    "static/js/2.d139734a.chunk.js.map": "/FooBar/static/js/2.d139734a.chunk.js.map",
     "static/js/3.1882e145.chunk.js": "/FooBar/static/js/3.1882e145.chunk.js",
     "static/js/3.1882e145.chunk.js.map": "/FooBar/static/js/3.1882e145.chunk.js.map",
     "index.html": "/FooBar/index.html",
     "static/css/main.5e456970.chunk.css.map": "/FooBar/static/css/main.5e456970.chunk.css.map",
-    "static/js/2.dd17e1ee.chunk.js.LICENSE.txt": "/FooBar/static/js/2.dd17e1ee.chunk.js.LICENSE.txt"
+    "static/js/2.d139734a.chunk.js.LICENSE.txt": "/FooBar/static/js/2.d139734a.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5732fbf6.js",
-    "static/js/2.dd17e1ee.chunk.js",
+    "static/js/2.d139734a.chunk.js",
     "static/css/main.5e456970.chunk.css",
-    "static/js/main.bafbe514.chunk.js"
+    "static/js/main.f859b83b.chunk.js"
   ]
 }
