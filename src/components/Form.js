@@ -1,6 +1,15 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import InputMask from "react-input-mask";
+
+//from https://www.youtube.com/watch?v=fTCTtCv8iN8
+
+const normalizeCardNumber = (value) =>{
+  return value.replace(/\s/g, "")?.match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
+}
+const normalizeCvvNumber = (value) =>{
+  return value.substr(0, 3);
+}
+
 
 export default function Form(){
 
@@ -16,29 +25,41 @@ const { register, handleSubmit, errors } = useForm();
       <legend>Payment Details</legend>
 
       <div>
-        <label>Card Number</label>
-        <InputMask mask="9999-9999-9999-9999" maskPlaceholder=" " name="card_number" ref={register({ required: true})}/>
-        {errors.card_number && 'Card number is required.'}
+        <label htmlFor="cardNumber" >Card Number</label>
+        <input
+        placeholder="    -    -    -    "
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="cardNumber"
+        id="cardNumber"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeCardNumber(value)
+        }}
+        ref={register({ required: true, minLength:19 })}
+        />
+          {errors.cardNumber && 'Enter the right number'}
       </div>
 
       <div>
-        <label>Expire</label>
-        <InputMask mask="99/99" maskPlaceholder="MM/YY" name="expire" ref={register({ required: true })}/>
-        {errors.expire && 'Enter month and year'}
+        <label htmlFor="cvv">CVV</label>
+        <input
+        placeholder="cvv"
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="cvv"
+        id="cvv"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeCvvNumber(value)
+        }}
+        ref={register({ required: true, minLength:3 })}
+        />
+        {errors.cvv && 'Enter the right number'}
       </div>
-     
-       <div>
-         <label>CVV</label>
-       <input name="cvv"  ref={register({ required: true, maxLength: 3, minLength:3, pattern: /\d+/})} />
-       {errors.cvv && 'Enter a number of three digits.'}
-       </div>
-
-       {/* <div>
-         <label>CVV</label>
-         <InputMask mask="999" maskPlaceholder="cvv" name="cvv"  ref={register({ required: true})} />
-         {errors.cvv && 'Enter a number of three digits.'}
-       </div> */}
-
+    
       <div>
         <label>Titular name</label>
         <input name="name" ref={register({ required: true })} /> 
