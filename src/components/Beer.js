@@ -11,7 +11,8 @@ export default function Beer(props) {
   };
 
   const handleDecrement = () => {
-    props.editCartItems(props.name, -1);
+    if(props.amount >= 1){
+    props.editCartItems(props.name, -1);}
   };
 
   const [isOpen, setIsOpen] = useState(false);
@@ -46,9 +47,9 @@ export default function Beer(props) {
           content={
             <>
               <b>{props.name}</b>
-              <p>{props.description.overallImpression}</p>
+              {/* <p>{props.description.overallImpression}</p>
               <p>{props.description.appearance}</p>
-              <p>{props.description.mouthfeel}</p>
+              <p>{props.description.mouthfeel}</p> */}
             </>
           }
           handleClose={togglePopup}

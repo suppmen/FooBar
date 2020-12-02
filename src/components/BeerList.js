@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+// import React, { useState, useEffect } from "react";
 import Beer from "./Beer";
 
 export default function BeerList(props) {
