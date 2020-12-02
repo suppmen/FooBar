@@ -49,28 +49,45 @@ main {
   padding: 2rem;
   border: 1px solid black;
   border-radius: 10px;
+  background-color: #c4c4c4;
+}
+.cart-img {
+  order: -1;
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.beer-cart-buttons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: black;
-  color: white;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.add-remove-beer-buttons {
-  padding: 10px;
+.beer-buttons {
+  padding: 0px;
+  margin-top: 10px;
+  margin-bottom: 70px;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  flex-flow: row-reverse;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: rgba(196, 196, 196, 0.37);
+
+  button {
+    border: none;
+    background-color: transparent;
+    font-size: x-large;
+  }
+  input {
+    border: none;
+    background-color: transparent;
+  }
 }
-.addBeerNumber {
-  padding: 10px;
+
+.beer-buttons-add-remove {
+  padding: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .beerListCenter {

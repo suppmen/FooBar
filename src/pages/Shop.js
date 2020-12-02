@@ -3,7 +3,7 @@ import BeerList from "../components/BeerList";
 
 export default function Shop(props) {
   return (
-    <section>
+    <section className="beerListCenter">
       <h2>Beers List</h2>
       {
         <BeerList

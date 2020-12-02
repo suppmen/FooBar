@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
+import beerImages from "./BeerImages";
+
 
 // From https://github.com/cluemediator/react-popup
 
@@ -17,15 +19,28 @@ export default function Beer(props) {
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
-
+  
   return (
-    <article>
+    <article >
+      <div className="BeersList">
       <h2>{props.name}</h2>
-      {/* <p>Category: {beerDetails.category}</p>} */}
-      <button onClick={handleIncrement}>+</button>
-      {props.amount}
+      
+     { beerImages.map(beerImage => {
+          if( props.name === beerImage.name){
+          return <img className="cart-img" src={ process.env.PUBLIC_URL + beerImage.linkImg} />;
+          }
+        })}
+     
+      </div>
+      <div className="beer-buttons">
+      <div className="beer-buttons-add-remove">
       <button onClick={handleDecrement}>-</button>
+      {props.amount}
+      <button onClick={handleIncrement}>+</button>
+      </div>
+
       <input type="button" value="See Details" onClick={togglePopup} />
+      </div>
       {isOpen && (
         <Popup
           content={
