@@ -1,66 +1,44 @@
-
-import React, {useState} from "react";
-import Popup from './Popup';
+import React, { useState } from "react";
+import Popup from "./Popup";
 
 // From https://github.com/cluemediator/react-popup
 
 export default function Beer(props) {
+  const handleIncrement = () => {
+    props.editCartItems(props.name, 1);
+  };
 
-  const [count, setCount]= useState(0);
-  
+  const handleDecrement = () => {
+    props.editCartItems(props.name, -1);
+  };
 
-  const handleIncrement = ()=>{
-    setCount(count + 1);
-    }
+  const [isOpen, setIsOpen] = useState(false);
 
-    const [isDis, setIsDis] = useState(false);
-    const handleDecrement = ()=>{
-      if (count === 0) {
-        setIsDis(!isDis)
-      } else {
-        setCount( count - 1);  
-      }
-      }
-    
-  
-
-
-    const [isOpen, setIsOpen] = useState(false);
-
-    const togglePopup = () => {
-      setIsOpen(!isOpen);
-    }
-
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <article className="BeersList">
-
-<h2>{props.name}</h2>
-      <p>Category: {props.category}</p>
-      <div className="add-remove-beer-buttons">
-      <button className="beer-cart-buttons" onClick={handleDecrement}> - </button>
-      <div className="addBeerNumber">
-       {count}</div>
-      <button className="beer-cart-buttons" onClick={handleIncrement}> + </button>
-      </div>
-      <input className="beer-cart-buttons"
-      type="button"
-      value="See Details"
-      onClick={togglePopup}
-    />
-    
-    {isOpen && <Popup
-      content={<>
-        <b>{props.name}</b>
-        <p>{props.description.overallImpression}</p>
-        <p>{props.description.appearance}</p>
-        <p>{props.description.mouthfeel}</p>
-        
-      </>}
-      handleClose={togglePopup}
-    />}
-   
-
+    <article>
+      <h2>{props.name}</h2>
+      {/* <p>Category: {beerDetails.category}</p>} */}
+      <button onClick={handleIncrement}>+</button>
+      {props.amount}
+      <button onClick={handleDecrement}>-</button>
+      <input type="button" value="See Details" onClick={togglePopup} />
+      {isOpen && (
+        <Popup
+          content={
+            <>
+              <b>{props.name}</b>
+              <p>{props.description.overallImpression}</p>
+              <p>{props.description.appearance}</p>
+              <p>{props.description.mouthfeel}</p>
+            </>
+          }
+          handleClose={togglePopup}
+        />
+      )}
     </article>
   );
 }
