@@ -7,7 +7,8 @@ export default function BeerList(props) {
   console.log(beerItemsArray, "beerItemsArray in beer list");
 
   return (
-    <main>
+    <div>
+    <section className="beerCartWrapper">
       {beerItemsArray &&
         beerItemsArray.map((item, index) => {
           return (
@@ -20,6 +21,8 @@ export default function BeerList(props) {
             />
           );
         })}
-    </main>
+    </section>
+  
+    </div>
   );
 }
