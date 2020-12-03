@@ -1,6 +1,22 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import InputMask from "react-input-mask";
+
+//from https://www.youtube.com/watch?v=fTCTtCv8iN8
+
+const normalizeCard = (value) =>{
+  return value.replace(/\s/g, "")?.match(/.{1,4}/g)?.join(" ").substr(0, 19) || ""
+}
+const normalizeCvv = (value) =>{
+  return value.substr(0, 3);
+}
+const normalizeMonth = (value) =>{
+  return value.substr(0, 2);
+}
+
+const normalizeYear = (value) =>{
+  return value.substr(0, 2);
+}
+
 
 export default function Form(){
 
@@ -12,43 +28,108 @@ const { register, handleSubmit, errors } = useForm();
   return (
     <form className="Form" onSubmit={handleSubmit(onSubmit)}>
 
-<fieldset>
-      <legend>Payment Details</legend>
+      <h1>Checkout</h1>
+
+      <div>   
+        <input name="name" 
+        ref={register({ required: true })}
+        placeholder="&nbsp;"
+        type="text"
+        /> 
+         <label>Full Name</label>
+      </div>
+        {errors.name && <p>*Full Name is required</p>}
 
       <div>
-        <label>Card Number</label>
-        <InputMask mask="9999-9999-9999-9999" maskPlaceholder=" " name="card_number" ref={register({ required: true})}/>
-        {errors.card_number && 'Card number is required.'}
+        <input
+        placeholder="&nbsp;"
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="cardNumber"
+        id="cardNumber"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeCard(value)
+        }}
+        ref={register({ required: true, minLength:19 })}
+        />
+        <label htmlFor="cardNumber" >Card Number</label>
       </div>
+          {errors.cardNumber && <p>*Card Number is required</p>}
+
+      <div className="expirationDate" >
+      <div className="small-div">
 
       <div>
-        <label>Expire</label>
-        <InputMask mask="99/99" maskPlaceholder="MM/YY" name="expire" ref={register({ required: true })}/>
-        {errors.expire && 'Enter month and year'}
+        <input
+        className="month"
+        placeholder="&nbsp;"
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="month"
+        id="month"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeMonth(value)
+        }}
+        ref={register({ required: true, minLength:2, pattern: /\d+/ })}
+        />
+        <label htmlFor="month">mm</label>
       </div>
-     
-       <div>
-         <label>CVV</label>
-       <input name="cvv"  ref={register({ required: true, maxLength: 3, minLength:3, pattern: /\d+/})} />
-       {errors.cvv && 'Enter a number of three digits.'}
-       </div>
+        {errors.month && <p>*Required</p>}
+        </div> 
 
-       {/* <div>
-         <label>CVV</label>
-         <InputMask mask="999" maskPlaceholder="cvv" name="cvv"  ref={register({ required: true})} />
-         {errors.cvv && 'Enter a number of three digits.'}
-       </div> */}
-
+      <div className="small-div">
       <div>
-        <label>Titular name</label>
-        <input name="name" ref={register({ required: true })} /> 
-        {errors.name && 'Titular name is required.'}
+        <input
+        className="year"
+        placeholder="&nbsp;"
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="year"
+        id="year"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeYear(value)
+        }}
+        ref={register({ required: true, minLength:2, pattern: /\d+/ })}
+        />
+        <label htmlFor="year">yy</label>
+      </div>
+        {errors.year && <p>*Required</p>}
+      </div>
+      
+      <div className="small-div">
+      <div>
+        <input
+        className="cvv"
+        placeholder="&nbsp;"
+        type="tel"
+        inputMode="numeric"
+        autoComplete="cc-number"
+        name="cvv"
+        id="cvv"
+        onChange={(event) =>{
+          const {value} = event.target
+          event.target.value = normalizeCvv(value)
+        }}
+        ref={register({ required: true, minLength:3, pattern: /\d+/ })}
+        />
+        <label htmlFor="cvv">cvv</label>
+      </div>
+        {errors.cvv && <p>*Required</p>}
+        </div>
+
       </div>
 
-      <div>
-          <input type="submit" />
+      <div >
+          <input className="submit" type="submit" value="Pay Now"/>
       </div>
-      </fieldset>
+
     </form>
   );
 }
+

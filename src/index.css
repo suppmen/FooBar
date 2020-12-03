@@ -8,16 +8,3 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-
-.Form {
-  max-width: 40vw;
-}
-
-.Form div {
-  margin-bottom: 2vh;
-}
-
-.ExpirationDate {
-  display: flex;
-  flex-direction: row;
-}
