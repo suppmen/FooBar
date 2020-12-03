@@ -1,4 +1,24 @@
 /* Popup style */
+
+// Fonts
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap");
+$font-stack: "Roboto", sans-serif;
+// Colors
+
+$header-background-color: #f6c83f;
+$primary-color: #202632;
+$secondery-color: #e5e5e5;
+$third-color: #faf0e3;
+$highlight-color: #e39c96;
+$body-primary-color: black;
+$body-secondary-color: white;
+
+body {
+  margin: 0;
+  padding: 0;
+  font: 100% $font-stack;
+}
+
 .popup-box {
   position: fixed;
   background: white;
