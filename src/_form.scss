@@ -1,0 +1,116 @@
+$input-focus-border: blue;
+$input-text-color: #c4c4c4;
+$input-padding: 12px;
+$header-font-properties: 30px, serif, bold;
+$border-properties: 47px, #262d3b, 1px;
+
+@mixin border($radius, $color, $width) {
+  border: {
+    width: $width;
+    radius: $radius;
+    color: $color;
+  }
+}
+
+@mixin header($size, $family, $weight) {
+  font: {
+    size: $size;
+    family: $family;
+    weight: $weight;
+  }
+}
+
+.Form {
+  padding: 3rem;
+
+  p {
+    margin-block-start: -1em;
+    margin-block-end: 0em;
+    font-size: 13px;
+    margin-left: 14px;
+    color: red;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    @include header($header-font-properties...);
+  }
+
+  div {
+    margin-bottom: 3vh;
+    display: grid;
+  }
+  div > * {
+    grid-area: 1/1;
+  }
+  .expirationDate {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    input {
+      width: 15vw;
+      margin-bottom: 0vw;
+    }
+
+    .small-div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  input,
+  select {
+    outline: none;
+    background: #ffffff;
+    margin-top: 4vw;
+    @include border($border-properties...);
+  }
+
+  label {
+    place-self: center start;
+    pointer-events: none;
+    color: $input-text-color;
+    transform-origin: 0 100%;
+    transform: translate(10px, 0);
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  select {
+    color: $input-text-color;
+    padding: $input-padding;
+
+    // Pseudo-classes / states
+    &:focus {
+      border-color: $input-focus-border;
+    }
+
+    &:not(:placeholder-shown) + label {
+      transform: translate(0, -130%) scale(0.95);
+      transition: 0.2s;
+    }
+  }
+
+  label {
+    will-change: transform, opacity;
+  }
+
+  .submit {
+    appearance: none;
+    background-color: #f0d172;
+    border-color: transparent;
+    color: white;
+    font-size: 30px;
+    padding: calc(#{$input-padding}/ 2);
+    cursor: pointer;
+
+    &:hover {
+      background-color: #ffffff;
+      border: 2px solid #f0d172;
+      color: #f0d172;
+      transition: 0.2s;
+    }
+  }
+}
