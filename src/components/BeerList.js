@@ -9,10 +9,10 @@ export default function BeerList(props) {
   return (
     <main>
       {beerItemsArray &&
-        beerItemsArray.map((item) => {
+        beerItemsArray.map((item, index) => {
           return (
             <Beer
-              key={item.id}
+              key={index}
               item={item}
               data={props.data}
               beers={props.beers}

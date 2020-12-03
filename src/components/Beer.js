@@ -9,14 +9,14 @@ export default function Beer(props) {
     (beer) => beer.name === props.item.name
   );
   const beerDetails = filteredBeers[0];
-  console.log(filteredBeers, " in beer");
+  console.log(beerDetails, " in beer");
   const handleIncrement = () => {
-    props.editCartItems(props.name, 1);
+    props.editCartItems(props.item.name, 1);
   };
 
   const handleDecrement = () => {
-    if (props.amount >= 1) {
-      props.editCartItems(props.name, -1);
+    if (props.item.amount >= 1) {
+      props.editCartItems(props.item.name, -1);
     }
   };
 
@@ -31,30 +31,34 @@ export default function Beer(props) {
       <div className="BeersList">
         <h2>{props.item.name}</h2>
 
-        {beerImages.map((beerImage) => {
+        {beerImages.map((beerImage, index) => {
           if (props.item.name === beerImage.name) {
             return (
+             
               <img
+                key={index}
                 className="cart-img"
+                alt="beerImage"
                 src={process.env.PUBLIC_URL + beerImage.linkImg}
               />
+             
             );
           }
+          return<div></div>
         })}
       </div>
       <div className="beer-buttons">
         <div className="beer-buttons-add-remove">
           <h2>{props.item.name}</h2>
-          {/* <p>Category: {beerDetails.category}</p>} */}
+         
           <button onClick={handleIncrement}>+</button>
           {props.item.amount}
-
           <button onClick={handleDecrement}>-</button>
         </div>
-      </div>
+     
 
       <input type="button" value="See Details" onClick={togglePopup} />
-      <duv />
+     </div>
       {isOpen && <Popup beerDetails={beerDetails} handleClose={togglePopup} />}
     </article>
   );
