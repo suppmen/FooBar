@@ -29,7 +29,7 @@ export default function Beer(props) {
   return (
     <article>
       <div className="BeersList">
-        <h2>{props.item.name}</h2>
+        {/* <h2>{props.item.name}</h2> */}
 
         {beerImages.map((beerImage, index) => {
           if (props.item.name === beerImage.name) {
@@ -37,7 +37,7 @@ export default function Beer(props) {
              
               <img
                 key={index}
-                className="cart-img"
+                className="beer-tap-img"
                 alt="beerImage"
                 src={process.env.PUBLIC_URL + beerImage.linkImg}
               />
@@ -46,19 +46,17 @@ export default function Beer(props) {
           }
           return<div></div>
         })}
-      </div>
       <div className="beer-buttons">
         <div className="beer-buttons-add-remove">
-          <h2>{props.item.name}</h2>
-         
-          <button onClick={handleIncrement}>+</button>
+          <button className="dec-btn" onClick={handleDecrement}>-</button>
           {props.item.amount}
-          <button onClick={handleDecrement}>-</button>
+          <button onClick={handleIncrement}>+</button>
         </div>
-     
-
+    
       <input type="button" value="See Details" onClick={togglePopup} />
      </div>
+      </div>
+
       {isOpen && <Popup beerDetails={beerDetails} handleClose={togglePopup} />}
     </article>
   );

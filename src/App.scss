@@ -129,7 +129,7 @@ body {
   padding: 5px;
 }
 
-main {
+.beerCartWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   grid-gap: 1rem;
@@ -140,30 +140,33 @@ main {
 .BeersList {
   display: flex;
   flex-flow: column;
-  padding: 2rem;
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #c4c4c4;
+  // border: 1px solid black;
+  // border-radius: 100px;
+  // background-color: #c4c4c4;
 }
-.cart-img {
+.beer-tap-img {
   order: -1;
   align-self: center;
-  width: 100%;
-  height: 100%;
+  width: 250px;
+  height: 300px;
+  border-radius: 22px;
+  border: 1px solid transparent;
   object-fit: cover;
 }
 
 .beer-buttons {
+  align-self: center;
+  width: 250px;
   padding: 0px;
   margin-top: 10px;
-  margin-bottom: 70px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-flow: row-reverse;
-  border: 1px solid black;
-  border-radius: 10px;
+  border: none;
+  border-radius: 22px;
   background-color: rgba(196, 196, 196, 0.37);
 
   button {
@@ -176,12 +179,16 @@ main {
     background-color: transparent;
   }
 }
+.dec-btn {
+  margin-bottom: 4px;
+}
 
 .beer-buttons-add-remove {
   padding: 0px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  align-self: center;
 }
 
 .beerListCenter {
