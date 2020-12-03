@@ -5,7 +5,7 @@ import Header from "../components/Header";
 export default function Shop(props) {
   return (
     <div className="Shop">
-      <Header />
+      <Header notificationsCount={props.notificationsCount} />
       <section className="beerListCenter">
         <h2>Beers List</h2>
         {
