@@ -1,0 +1,13 @@
+@use '../App.scss';
+
+.Home {
+  width: 100%;
+  height: 100vh;
+  background-color: App.$primary-color;
+  background-color: pink;
+}
+.home {
+  button {
+    background-color: pink;
+  }
+}

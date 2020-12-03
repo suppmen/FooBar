@@ -11,6 +11,7 @@ function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
+
   console.log(cartItems);
   function editCartItems(name, modifier) {
     const nextItems = cartItems.map((item) => {
@@ -30,23 +31,20 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div>
+        <div className="nav">
           <nav>
             <ul>
               <li>
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/shop">Beers</Link>
+                <Link to="/shop">Shop</Link>
               </li>
               <li>
                 <Link to="/cart">Cart</Link>
               </li>
             </ul>
           </nav>
-
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
 
           <Switch>
             <Route path="/shop">
@@ -58,10 +56,20 @@ function App() {
               />
             </Route>
             <Route path="/cart">
-              {cartItems && <Cart cartItems={cartItems} />}
+              <Cart
+                data={data}
+                beers={beers}
+                cartItems={cartItems}
+                editCartItems={editCartItems}
+              />
             </Route>
             <Route path="/">
-              <Home />
+              <Home
+                data={data}
+                beers={beers}
+                cartItems={cartItems}
+                editCartItems={editCartItems}
+              />
             </Route>
           </Switch>
         </div>
