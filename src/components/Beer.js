@@ -4,6 +4,11 @@ import Popup from "./Popup";
 // From https://github.com/cluemediator/react-popup
 
 export default function Beer(props) {
+  const filteredBeers = props.beers.filter(
+    (beer) => beer.name === props.item.name
+  );
+  const beerDetails = filteredBeers[0];
+  console.log(filteredBeers, " in beer");
   const handleIncrement = () => {
     props.editCartItems(props.name, 1);
   };
@@ -20,25 +25,13 @@ export default function Beer(props) {
 
   return (
     <article>
-      <h2>{props.name}</h2>
+      <h2>{props.item.name}</h2>
       {/* <p>Category: {beerDetails.category}</p>} */}
       <button onClick={handleIncrement}>+</button>
-      {props.amount}
+      {props.item.amount}
       <button onClick={handleDecrement}>-</button>
       <input type="button" value="See Details" onClick={togglePopup} />
-      {isOpen && (
-        <Popup
-          content={
-            <>
-              <b>{props.name}</b>
-              <p>{props.description.overallImpression}</p>
-              <p>{props.description.appearance}</p>
-              <p>{props.description.mouthfeel}</p>
-            </>
-          }
-          handleClose={togglePopup}
-        />
-      )}
+      {isOpen && <Popup beerDetails={beerDetails} handleClose={togglePopup} />}
     </article>
   );
 }

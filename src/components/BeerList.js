@@ -13,8 +13,9 @@ export default function BeerList(props) {
           return (
             <Beer
               key={item.id}
-              {...item}
+              item={item}
               data={props.data}
+              beers={props.beers}
               editCartItems={props.editCartItems}
             />
           );
