@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @use './home';
 @mixin btn($color, $background) {
   color: $color;
@@ -16,6 +17,9 @@ a {
   background-color: none;
   text-decoration: none;
 }
+=======
+@import "./form";
+>>>>>>> stylingForm
 
 /* Popup style */
 
