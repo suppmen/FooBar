@@ -13,13 +13,13 @@ export default function Shop(props) {
         notificationsCount={props.notificationsCount}
       />
       <section className="beerListCenter">
-        <h2>Beers List</h2>
         {
           <BeerList
             beers={props.beers}
             data={props.data}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}
+            ratingToggle={props.ratingToggle}
           />
         }
       </section>

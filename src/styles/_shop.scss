@@ -5,24 +5,33 @@
   padding-left: 15px;
   padding-right: 15px;
   margin-bottom: 50px;
+  margin-top: 50px;
 }
 
 .BeersList {
   display: flex;
   flex-flow: column;
-
-  // border: 1px solid black;
-  // border-radius: 100px;
-  // background-color: #c4c4c4;
 }
+
 .beer-tap-img {
-  order: -1;
   align-self: center;
   width: 250px;
   height: 300px;
   border-radius: 22px;
   border: 1px solid transparent;
   object-fit: cover;
+}
+
+.ratingImg {
+  position: absolute;
+  margin-left: 88px;
+  margin-top: 5px;
+}
+.star-yellow {
+  fill: #f6c83f;
+}
+.star {
+  fill: #faf0e3;
 }
 
 .beer-buttons {
