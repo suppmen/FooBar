@@ -3,6 +3,7 @@ import { getData, getBeers, postOrder } from "./modules/Rest";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
+import Payment from "./pages/Payment";
 import Loader from "./components/Loader";
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -15,20 +16,18 @@ function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
- 
+
   let order;
-  function editOrder(itemsArray){
+  function editOrder(itemsArray) {
     //this function is called from CartList
     order = itemsArray;
   }
 
-  function sendPostRequest(){
+  function sendPostRequest() {
     //this function is called from Form
     console.log("order from form", order);
-    postOrder(order);
+    postOrder(order, sendMessage);
   }
-
-
 
   let notificationsCount;
   if (cartItems.length > 1) {
@@ -36,18 +35,17 @@ function App() {
       accumulator + currentValue.amount;
     notificationsCount = cartItems.reduce(reducer, 0);
   }
- 
 
-  function ratingToggle(name){
-  
-  const nextItems = cartItems.map((item) => {
-    (item.name === name && !item.isStar)? item.isStar = true : item.isStar = false;
-    return item;
-  });
+  function ratingToggle(name) {
+    const nextItems = cartItems.map((item) => {
+      item.name === name && !item.isStar
+        ? (item.isStar = true)
+        : (item.isStar = false);
+      return item;
+    });
 
-  console.log(nextItems,"nextItem")
-  setCartItems(nextItems);
-
+    console.log(nextItems, "nextItem");
+    setCartItems(nextItems);
   }
 
   function editCartItems(name, modifier) {
@@ -58,6 +56,10 @@ function App() {
       return item;
     });
     setCartItems(nextItems);
+  }
+
+  function sendMessage() {
+    console.log("sucsesssssssssssssssssssssssssssssssss");
   }
 
   useEffect(() => {
@@ -94,6 +96,12 @@ function App() {
           </nav>
 
           <Switch>
+            <Route path="/payment">
+              <Payment
+                sendPostRequest={sendPostRequest}
+                cartItems={cartItems}
+              />
+            </Route>
             <Route path="/shop">
               <Shop
                 notificationsCount={notificationsCount}
@@ -110,8 +118,8 @@ function App() {
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
-                editOrder={editOrder} 
-                sendPostRequest={sendPostRequest}            
+                editOrder={editOrder}
+                sendPostRequest={sendPostRequest}
               />
             </Route>
             <Route path="/">

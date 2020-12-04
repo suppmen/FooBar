@@ -7,10 +7,9 @@ export default function CartList(props) {
   console.log(itemsArray, "in cart list");
 
   console.log("editOrder is: ", props.editOrder);
-  
+
   props.editOrder(itemsArray);
 
-  
   return (
     <div className="CartList">
       {itemsArray.map((item, i) => {
