@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/FooBar/static/css/main.1add0430.chunk.css",
-    "main.js": "/FooBar/static/js/main.c2902323.chunk.js",
-    "main.js.map": "/FooBar/static/js/main.c2902323.chunk.js.map",
+    "main.js": "/FooBar/static/js/main.e975dcac.chunk.js",
+    "main.js.map": "/FooBar/static/js/main.e975dcac.chunk.js.map",
     "runtime-main.js": "/FooBar/static/js/runtime-main.baf8b067.js",
     "runtime-main.js.map": "/FooBar/static/js/runtime-main.baf8b067.js.map",
     "static/js/2.6546bbca.chunk.js": "/FooBar/static/js/2.6546bbca.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.baf8b067.js",
     "static/js/2.6546bbca.chunk.js",
     "static/css/main.1add0430.chunk.css",
-    "static/js/main.c2902323.chunk.js"
+    "static/js/main.e975dcac.chunk.js"
   ]
 }
