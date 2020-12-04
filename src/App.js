@@ -35,20 +35,6 @@ function App() {
       accumulator + currentValue.amount;
     notificationsCount = cartItems.reduce(reducer, 0);
   }
-<<<<<<< HEAD
- 
-
-  function ratingToggle(name){
-  //matching the name to the item in map
-  const nextItems = cartItems.map((item) => {
-    if (item.name === name){
-// chacking if the star is false, if it is, set it to true, else set it to false
-      !item.isStar? item.isStar = true : item.isStar = false;
-    }
-    return item;
-  });
-=======
->>>>>>> b3635a3fe3b6965b9602b7abe1ca717ffbc241bc
 
   function ratingToggle(name) {
     const nextItems = cartItems.map((item) => {
@@ -57,6 +43,7 @@ function App() {
         : (item.isStar = false);
       return item;
     });
+   
 
     console.log(nextItems, "nextItem");
     setCartItems(nextItems);
