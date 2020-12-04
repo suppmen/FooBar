@@ -1,12 +1,6 @@
-// Colors
+@import "./styles/base";
 
-$header-background-color: #f6c83f;
-$primary-color: #202632;
-$secondery-color: #e5e5e5;
-$third-color: #faf0e3;
-$highlight-color: #e39c96;
-$body-primary-color: black;
-$body-secondary-color: white;
+// Home page
 
 .Home {
   width: 100%;
@@ -37,7 +31,7 @@ $body-secondary-color: white;
 .Home {
   .logo {
     height: auto;
-    width: 200px;
+    width: 150px;
   }
 }
 .Home {

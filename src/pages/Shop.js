@@ -5,7 +5,13 @@ import Header from "../components/Header";
 export default function Shop(props) {
   return (
     <div className="Shop">
-      <Header notificationsCount={props.notificationsCount} />
+      <Header
+        beers={props.beers}
+        data={props.data}
+        cartItems={props.cartItems}
+        editCartItems={props.editCartItems}
+        notificationsCount={props.notificationsCount}
+      />
       <section className="beerListCenter">
         <h2>Beers List</h2>
         {

@@ -13,10 +13,8 @@ export default function Home(props) {
           <h1>FooBar</h1>
         </div>
         <img className="logo" src={logo} alt="logo" />
-        {/* 
-        <button className="home-btn">
-          Start
-        </button> */}
+
+        {/* <button className="home-btn">Start</button> */}
       </article>
     </div>
   );
