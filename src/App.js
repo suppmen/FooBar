@@ -11,6 +11,13 @@ function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
+  let notificationsCount;
+  if (cartItems.length > 1) {
+    const reducer = (accumulator, currentValue) =>
+      accumulator + currentValue.amount;
+    notificationsCount = cartItems.reduce(reducer, 0);
+    console.log(notificationsCount, "in app");
+  }
 
   console.log(cartItems);
   function editCartItems(name, modifier) {
@@ -49,6 +56,7 @@ function App() {
           <Switch>
             <Route path="/shop">
               <Shop
+                notificationsCount={notificationsCount}
                 data={data}
                 beers={beers}
                 cartItems={cartItems}
