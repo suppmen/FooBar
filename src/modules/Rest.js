@@ -34,3 +34,16 @@ export function getBeers(callback) {
     })
     .then((data) => callback(data));
 }
+
+export function postOrder(payload, callback) {
+  const postData = JSON.stringify(payload);
+  fetch("https://foo-bar-managers.herokuapp.com/order", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: postData,
+  })
+    .then((res) => res.json())
+    .then((response) => callback());
+}
