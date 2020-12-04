@@ -16,10 +16,21 @@ function App() {
     const reducer = (accumulator, currentValue) =>
       accumulator + currentValue.amount;
     notificationsCount = cartItems.reduce(reducer, 0);
-    console.log(notificationsCount, "in app");
+  }
+ 
+
+  function ratingToggle(name){
+  
+  const nextItems = cartItems.map((item) => {
+    (item.name === name && !item.isStar)? item.isStar = true : item.isStar = false;
+    return item;
+  });
+
+  console.log(nextItems,"nextItem")
+  setCartItems(nextItems);
+
   }
 
-  console.log(cartItems);
   function editCartItems(name, modifier) {
     const nextItems = cartItems.map((item) => {
       if (item.name === name) {
@@ -61,6 +72,7 @@ function App() {
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
+                ratingToggle={ratingToggle}
               />
             </Route>
             <Route path="/cart">
