@@ -1,26 +1,29 @@
 {
   "files": {
-    "main.css": "/FooBar/static/css/main.a5eefe90.chunk.css",
-    "main.js": "/FooBar/static/js/main.81eb57cb.chunk.js",
-    "main.js.map": "/FooBar/static/js/main.81eb57cb.chunk.js.map",
+    "main.css": "/FooBar/static/css/main.e6df8053.chunk.css",
+    "main.js": "/FooBar/static/js/main.03620454.chunk.js",
+    "main.js.map": "/FooBar/static/js/main.03620454.chunk.js.map",
     "runtime-main.js": "/FooBar/static/js/runtime-main.baf8b067.js",
     "runtime-main.js.map": "/FooBar/static/js/runtime-main.baf8b067.js.map",
-    "static/js/2.8b929f13.chunk.js": "/FooBar/static/js/2.8b929f13.chunk.js",
-    "static/js/2.8b929f13.chunk.js.map": "/FooBar/static/js/2.8b929f13.chunk.js.map",
+    "static/js/2.8079f14b.chunk.js": "/FooBar/static/js/2.8079f14b.chunk.js",
+    "static/js/2.8079f14b.chunk.js.map": "/FooBar/static/js/2.8079f14b.chunk.js.map",
     "static/js/3.01af828b.chunk.js": "/FooBar/static/js/3.01af828b.chunk.js",
     "static/js/3.01af828b.chunk.js.map": "/FooBar/static/js/3.01af828b.chunk.js.map",
     "index.html": "/FooBar/index.html",
-    "static/css/main.a5eefe90.chunk.css.map": "/FooBar/static/css/main.a5eefe90.chunk.css.map",
-    "static/js/2.8b929f13.chunk.js.LICENSE.txt": "/FooBar/static/js/2.8b929f13.chunk.js.LICENSE.txt",
+    "static/css/main.e6df8053.chunk.css.map": "/FooBar/static/css/main.e6df8053.chunk.css.map",
+    "static/js/2.8079f14b.chunk.js.LICENSE.txt": "/FooBar/static/js/2.8079f14b.chunk.js.LICENSE.txt",
     "static/media/arrow.132e1dc7.svg": "/FooBar/static/media/arrow.132e1dc7.svg",
     "static/media/beer.ab028488.svg": "/FooBar/static/media/beer.ab028488.svg",
+    "static/media/cart.6bbde604.svg": "/FooBar/static/media/cart.6bbde604.svg",
+    "static/media/home.f8a0eabe.svg": "/FooBar/static/media/home.f8a0eabe.svg",
     "static/media/logo_dark.e18b6175.svg": "/FooBar/static/media/logo_dark.e18b6175.svg",
-    "static/media/logo_white.9fdd9bc5.svg": "/FooBar/static/media/logo_white.9fdd9bc5.svg"
+    "static/media/logo_white.9fdd9bc5.svg": "/FooBar/static/media/logo_white.9fdd9bc5.svg",
+    "static/media/shop.d13cf86b.svg": "/FooBar/static/media/shop.d13cf86b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.baf8b067.js",
-    "static/js/2.8b929f13.chunk.js",
-    "static/css/main.a5eefe90.chunk.css",
-    "static/js/main.81eb57cb.chunk.js"
+    "static/js/2.8079f14b.chunk.js",
+    "static/css/main.e6df8053.chunk.css",
+    "static/js/main.03620454.chunk.js"
   ]
 }
