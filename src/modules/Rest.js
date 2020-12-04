@@ -15,6 +15,7 @@ export function getData(callback1, callback2) {
       const x = data.taps.map((item) => ({
         name: item.beer,
         amount: 0,
+        isStar: false,
       }));
       console.log(x, "x");
       callback2(x);

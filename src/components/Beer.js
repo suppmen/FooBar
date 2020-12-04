@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
 import beerImages from "./BeerImages";
+// import  rating_star  from "../media/rating_star.svg";
+import Stars from "../icon-componenets/Stars"
 
 // From https://github.com/cluemediator/react-popup
 
@@ -9,7 +11,7 @@ export default function Beer(props) {
     (beer) => beer.name === props.item.name
   );
   const beerDetails = filteredBeers[0];
-  console.log(beerDetails, " in beer");
+ 
   const handleIncrement = () => {
     props.editCartItems(props.item.name, 1);
   };
@@ -20,17 +22,30 @@ export default function Beer(props) {
     }
   };
 
+  
+  
+
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
+  
+
+  const handleToggle = () => {
+    props.ratingToggle(props.item.name);
+  };
+
+
 
   return (
     <article>
       <div className="BeersList">
-        {/* <h2>{props.item.name}</h2> */}
 
+      <div className={props.item.isStar ? "star-yellow" : "star"}>
+      <Stars className="ratingImg"  onClick={handleToggle}/>
+        
+        </div>
         {beerImages.map((beerImage, index) => {
           if (props.item.name === beerImage.name) {
             return (
@@ -46,6 +61,7 @@ export default function Beer(props) {
           }
           return<div></div>
         })}
+       
       <div className="beer-buttons">
         <div className="beer-buttons-add-remove">
           <button className="dec-btn" onClick={handleDecrement}>-</button>
