@@ -6,11 +6,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 export default function Cart(props) {
   console.log(props.cartItems, "in cart ");
+ 
+
 
   return (
     <section>
       <h2>Cart</h2>
-      <CartList cartItems={props.cartItems} />
+      <CartList cartItems={props.cartItems} editOrder={props.editOrder} />
       <p>Her you will see your order</p>
       <Router>
         <div>
@@ -19,7 +21,9 @@ export default function Cart(props) {
           </button>
           <Switch>
             <Route path="/pay">
-              <Pay />
+              <Pay 
+           sendPostRequest={props.sendPostRequest}  
+              />
             </Route>
           </Switch>
         </div>
@@ -28,10 +32,10 @@ export default function Cart(props) {
   );
 }
 
-function Pay() {
+function Pay(props) {
   return (
     <section>
-      <Form />
+      <Form    sendPostRequest={props.sendPostRequest}  />
     </section>
   );
 }
