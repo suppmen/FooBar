@@ -1,0 +1,28 @@
+// mixin
+@mixin btn($color, $background) {
+  color: $color;
+  background-color: $background;
+  border-radius: 57px;
+  padding: 10px 40px;
+  border: none;
+  text-decoration: none;
+  text-transform: capitalize;
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+// colors
+$header-background-color: #f6c83f;
+$primary-color: #202632;
+$secondery-color: #e5e5e5;
+$third-color: #faf0e3;
+$highlight-color: #e39c96;
+$body-primary-color: black;
+$body-secondary-color: white;
+
+// fonts
+
+@import url("https://fonts.googleapis.com/css2?family=Alef:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100;1,300;1,400&display=swap");
+$font-stack: "Roboto", sans-serif;
+$font-title-stack: "Alef", sans-serif;

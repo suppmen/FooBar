@@ -7,6 +7,10 @@ import Loader from "./components/Loader";
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
+import cartImg from "./media/cart.svg";
+import homeImg from "./media/home.svg";
+import shopImg from "./media/shop.svg";
+
 function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
@@ -42,13 +46,23 @@ function App() {
           <nav>
             <ul>
               <li>
-                <Link to="/">Home</Link>
+                <Link to="/">
+                  <img className="homeImg" src={homeImg} alt="homeImg" />
+                  <p>Home</p>
+                </Link>
               </li>
               <li>
-                <Link to="/shop">Shop</Link>
+                <Link to="/shop">
+                  <img className="shopImg" src={shopImg} alt="shopImg" />
+                  <p>Shop</p>
+                </Link>
               </li>
               <li>
-                <Link to="/cart">Cart</Link>
+                <Link to="/cart">
+                  <img className="cartImg" src={cartImg} alt="cart" />
+
+                  <p>Cart</p>
+                </Link>
               </li>
             </ul>
           </nav>
