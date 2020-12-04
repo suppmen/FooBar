@@ -22,6 +22,19 @@ export function getData(callback1, callback2) {
     });
 }
 
+export function postOrder(payload, callback) {
+  fetch("https://foo-bar-managers.herokuapp.com/order", {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json; charset=utf-8",
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((res) => res.json())
+    .then(data=> console.log(data))
+    .then((response) => callback());
+}
+
 export function getBeers(callback) {
   fetch(Url + "beertypes", {
     method: "get",
