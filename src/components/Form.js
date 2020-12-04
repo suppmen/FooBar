@@ -18,11 +18,12 @@ const normalizeYear = (value) =>{
 }
 
 
-export default function Form(){
+export default function Form(props){
 
 const { register, handleSubmit, errors } = useForm(); 
   const onSubmit = (data) => {
     console.log(data);
+    props.sendPostRequest(); 
   };
 
   return (
