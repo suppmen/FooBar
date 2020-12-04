@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getData, getBeers } from "./modules/Rest";
+import { getData, getBeers, postOrder } from "./modules/Rest";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -11,6 +11,21 @@ function App() {
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
+ 
+  let order;
+  function editOrder(itemsArray){
+    //this function is called from CartList
+    order = itemsArray;
+  }
+
+  function sendPostRequest(){
+    //this function is called from Form
+    console.log("order from form", order);
+    postOrder(order);
+  }
+
+
+
   let notificationsCount;
   if (cartItems.length > 1) {
     const reducer = (accumulator, currentValue) =>
@@ -69,6 +84,8 @@ function App() {
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
+                editOrder={editOrder} 
+                sendPostRequest={sendPostRequest}            
               />
             </Route>
             <Route path="/">
