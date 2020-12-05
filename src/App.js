@@ -96,6 +96,7 @@ function App() {
           <Switch>
             <Route path="/payment">
               <Payment
+               notificationsCount={notificationsCount}
                 sendPostRequest={sendPostRequest}
                 cartItems={cartItems}
               />

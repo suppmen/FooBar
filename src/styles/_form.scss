@@ -1,7 +1,9 @@
+@import "./styles/base";
+
 $input-focus-border: blue;
 $input-text-color: #c4c4c4;
 $input-padding: 12px;
-$header-font-properties: 30px, serif, bold;
+$header-font-properties: 30px, $font-stack, bold;
 $border-properties: 47px, #262d3b, 1px;
 
 @mixin border($radius, $color, $width) {
@@ -21,7 +23,12 @@ $border-properties: 47px, #262d3b, 1px;
 }
 
 .Form {
-  padding: 3rem;
+  max-width: 400px;
+  margin: auto;
+}
+
+form {
+  padding: 1rem 3rem;
 
   p {
     margin-block-start: -1em;
@@ -48,6 +55,7 @@ $border-properties: 47px, #262d3b, 1px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0;
 
     input {
       width: 15vw;
@@ -64,7 +72,7 @@ $border-properties: 47px, #262d3b, 1px;
   select {
     outline: none;
     background: #ffffff;
-    margin-top: 4vw;
+    margin-top: 3vw;
     @include border($border-properties...);
   }
 
@@ -104,6 +112,7 @@ $border-properties: 47px, #262d3b, 1px;
     color: white;
     font-size: 30px;
     padding: calc(#{$input-padding}/ 2);
+    margin: 0 0 10vh 0;
     cursor: pointer;
 
     &:hover {
@@ -111,6 +120,54 @@ $border-properties: 47px, #262d3b, 1px;
       border: 2px solid #f0d172;
       color: #f0d172;
       transition: 0.2s;
+    }
+  }
+}
+
+/*------------------------------MEDIAQUERY 500px-----------------------*/
+
+@media screen and (min-width: 500px) {
+  .Form {
+    max-width: 300px;
+    margin-top: 8vh;
+
+    form {
+      padding: 0;
+      input,
+      select {
+        margin-top: 2vw;
+      }
+      .expirationDate .small-div div input {
+        width: 11vw;
+      }
+    }
+  }
+}
+
+/*------------------------------MEDIAQUERY 650px-----------------------*/
+
+@media screen and (min-width: 650px) {
+  .Form {
+    form {
+      .expirationDate .small-div div input {
+        width: 8vw;
+      }
+    }
+  }
+}
+
+/*------------------------------MEDIAQUERY 900px-----------------------*/
+
+@media screen and (min-width: 900px) {
+  .Form {
+    form {
+      input,
+      select {
+        margin-top: 1vw;
+      }
+      .expirationDate .small-div div input {
+        width: 6vw;
+      }
     }
   }
 }

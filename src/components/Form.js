@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+
 //from https://www.youtube.com/watch?v=fTCTtCv8iN8
 
 const normalizeCard = (value) => {
@@ -34,7 +35,8 @@ export default function Form(props) {
   };
 
   return (
-    <form className="Form" onSubmit={handleSubmit(onSubmit)}>
+    <div className="Form">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Checkout</h1>
 
       <div>
@@ -135,5 +137,6 @@ export default function Form(props) {
         <input className="submit" type="submit" value="Pay Now" />
       </div>
     </form>
+    </div>
   );
 }
