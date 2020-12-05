@@ -24,10 +24,12 @@ const normalizeYear = (value) => {
 };
 
 export default function Form(props) {
+  const itemsArray = props.cartItems.filter((beer) => beer.amount > 0);
+  
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    props.sendPostRequest();
+    props.sendPostRequest(itemsArray);
    
   };
 
