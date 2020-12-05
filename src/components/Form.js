@@ -28,6 +28,7 @@ export default function Form(props) {
   const onSubmit = (data) => {
     console.log(data);
     props.sendPostRequest();
+   
   };
 
   return (
