@@ -51,7 +51,7 @@ export default function Cart(props) {
 
   return (
     <section>
-      <h2>Your Order</h2>
+      <h2 className="cart-order">Your Order</h2>
       <Total />
       <CartList
         editOrder={props.editOrder}

@@ -13,7 +13,14 @@ export default function CartList(props) {
   return (
     <div className="CartList">
       {itemsArray.map((item, i) => {
-        return <CartItem key={i} {...item} />;
+        return (
+          <CartItem
+            key={i}
+            {...item}
+            editCartItems={props.editCartItems}
+            notificationsCount={props.notificationsCount}
+          />
+        );
       })}
     </div>
   );
