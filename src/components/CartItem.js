@@ -12,9 +12,14 @@ export default function CartItem(props) {
       props.editCartItems(props.name, -1);
     }
   };
+
+  const remove = () => {
+    console.log("Remove", props.amount);
+    props.editCartItems(props.name, -props.amount);
+  };
   return (
     <div className="CartItem">
-      <img src={bin} className="bin" alt="bin" />
+      <img src={bin} className="bin" alt="bin" onClick={remove} />
       {beerImages.map((beerImage, index) => {
         if (props.name === beerImage.name) {
           return (
