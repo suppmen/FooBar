@@ -7,7 +7,6 @@ import Payment from "./pages/Payment";
 import Loader from "./components/Loader";
 import "./App.scss";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
 import cartImg from "./media/cart.svg";
 import homeImg from "./media/home.svg";
 import shopImg from "./media/shop.svg";
@@ -17,13 +16,9 @@ function App() {
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
-  let order;
-  function editOrder(itemsArray) {
-    //this function is called from CartList
-    order = itemsArray;
-  }
 
-  function sendPostRequest() {
+
+  function sendPostRequest(order) {
     //this function is called from Form
     console.log("order from form", order);
     postOrder(order, sendMessage);
@@ -100,6 +95,7 @@ function App() {
           <Switch>
             <Route path="/payment">
               <Payment
+               notificationsCount={notificationsCount}
                 sendPostRequest={sendPostRequest}
                 cartItems={cartItems}
               />
@@ -121,7 +117,6 @@ function App() {
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
-                editOrder={editOrder}
                 sendPostRequest={sendPostRequest}
               />
             </Route>
