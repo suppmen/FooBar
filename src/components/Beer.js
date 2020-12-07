@@ -59,7 +59,7 @@ export default function Beer(props) {
              
             );
           }
-          return<div></div>
+          return<div key={index}></div>
         })}
        
       <div className="beer-buttons">
