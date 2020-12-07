@@ -1,6 +1,6 @@
 import React from "react";
-import Form from "../components/Form";
 import CartList from "../components/CartList";
+
 import arrow from "../media/long-arrow.svg";
 
 import { Link } from "react-router-dom";
@@ -61,6 +61,7 @@ export default function Cart(props) {
       />
       <Nobeers />
       <div></div>
+
     </section>
   );
 }

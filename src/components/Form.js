@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 
+
 //from https://www.youtube.com/watch?v=fTCTtCv8iN8
 
 const normalizeCard = (value) => {
@@ -24,26 +25,30 @@ const normalizeYear = (value) => {
 };
 
 export default function Form(props) {
+  const itemsArray = props.cartItems.filter((beer) => beer.amount > 0);
+  
   const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-    props.sendPostRequest();
+    props.sendPostRequest(itemsArray);
+   
   };
 
   return (
-    <form className="Form" onSubmit={handleSubmit(onSubmit)}>
+    <div className="Form">
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Checkout</h1>
 
       <div>
         <input
           name="name"
-          ref={register({ required: true })}
+          ref={register({ required: "*Required"})}
           placeholder="&nbsp;"
           type="text"
         />
         <label>Full Name</label>
       </div>
-      {errors.name && <p>*Full Name is required</p>}
+      {errors.name && <p>{errors.name.message}</p>}
 
       <div>
         <input
@@ -57,11 +62,11 @@ export default function Form(props) {
             const { value } = event.target;
             event.target.value = normalizeCard(value);
           }}
-          ref={register({ required: true, minLength: 19 })}
+          ref={register({ required: "*Required", minLength: {value:19, message:"Verify number"} })}
         />
         <label htmlFor="cardNumber">Card Number</label>
       </div>
-      {errors.cardNumber && <p>*Card Number is required</p>}
+        {errors.cardNumber && <p>{errors.cardNumber.message}</p>}
 
       <div className="expirationDate">
         <div className="small-div">
@@ -78,11 +83,11 @@ export default function Form(props) {
                 const { value } = event.target;
                 event.target.value = normalizeMonth(value);
               }}
-              ref={register({ required: true, minLength: 2, pattern: /\d+/ })}
+              ref={register({ required: "*Required", minLength: {value:2, message:"Verify number"}, pattern: /\d+/ })}
             />
             <label htmlFor="month">mm</label>
           </div>
-          {errors.month && <p>*Required</p>}
+            {errors.month && <p>{errors.month.message}</p>}
         </div>
 
         <div className="small-div">
@@ -99,11 +104,11 @@ export default function Form(props) {
                 const { value } = event.target;
                 event.target.value = normalizeYear(value);
               }}
-              ref={register({ required: true, minLength: 2, pattern: /\d+/ })}
+              ref={register({ required: "*Required", minLength: {value:2, message:"Verify number"}, pattern: /\d+/ })}
             />
             <label htmlFor="year">yy</label>
           </div>
-          {errors.year && <p>*Required</p>}
+            {errors.year && <p>{errors.year.message}</p>}
         </div>
 
         <div className="small-div">
@@ -120,11 +125,11 @@ export default function Form(props) {
                 const { value } = event.target;
                 event.target.value = normalizeCvv(value);
               }}
-              ref={register({ required: true, minLength: 3, pattern: /\d+/ })}
+              ref={register({ required: "*Required", minLength: {value:3, message:"Verify number"}, pattern: /\d+/ })}
             />
             <label htmlFor="cvv">cvv</label>
           </div>
-          {errors.cvv && <p>*Required</p>}
+          {errors.cvv && <p>{errors.cvv.message}</p>}
         </div>
       </div>
 
@@ -132,5 +137,6 @@ export default function Form(props) {
         <input className="submit" type="submit" value="Pay Now" />
       </div>
     </form>
+    </div>
   );
 }

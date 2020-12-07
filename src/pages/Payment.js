@@ -1,11 +1,13 @@
 import React from "react";
 import Form from "../components/Form";
+import Header from "../components/Header";
 
 export default function Payment(props) {
+
   return (
     <section>
-      <h1>I am payment page</h1>
-      <Form sendPostRequest={props.sendPostRequest} />
+      <Header notificationsCount={props.notificationsCount}/>
+      <Form sendPostRequest={props.sendPostRequest} cartItems={props.cartItems}  />
     </section>
   );
 }
