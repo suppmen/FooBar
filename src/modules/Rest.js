@@ -12,13 +12,19 @@ export function getData(callback1, callback2) {
     })
     .then((data) => {
       callback1(data);
-      const x = data.taps.map((item) => ({
-        name: item.beer,
-        amount: 0,
-        isStar: false,
-      }));
-      console.log(x, "x");
-      callback2(x);
+      const updatedData=[];
+
+        data.taps.forEach((item) => {
+          if(updatedData.filter(i=>i.name===item.beer).length===0){
+            updatedData.push({
+                name: item.beer,
+                amount: 0,
+                isStar: false,
+              })
+          }}
+          );
+      console.log(updatedData, "x");
+      callback2(updatedData);
     });
 }
 
