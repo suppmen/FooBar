@@ -1,29 +1,31 @@
 {
   "files": {
-    "main.css": "/FooBar/static/css/main.1add0430.chunk.css",
-    "main.js": "/FooBar/static/js/main.e975dcac.chunk.js",
-    "main.js.map": "/FooBar/static/js/main.e975dcac.chunk.js.map",
+    "main.css": "/FooBar/static/css/main.b6f3ea14.chunk.css",
+    "main.js": "/FooBar/static/js/main.d8749cb6.chunk.js",
+    "main.js.map": "/FooBar/static/js/main.d8749cb6.chunk.js.map",
     "runtime-main.js": "/FooBar/static/js/runtime-main.baf8b067.js",
     "runtime-main.js.map": "/FooBar/static/js/runtime-main.baf8b067.js.map",
-    "static/js/2.6546bbca.chunk.js": "/FooBar/static/js/2.6546bbca.chunk.js",
-    "static/js/2.6546bbca.chunk.js.map": "/FooBar/static/js/2.6546bbca.chunk.js.map",
+    "static/js/2.1cc07bc7.chunk.js": "/FooBar/static/js/2.1cc07bc7.chunk.js",
+    "static/js/2.1cc07bc7.chunk.js.map": "/FooBar/static/js/2.1cc07bc7.chunk.js.map",
     "static/js/3.01af828b.chunk.js": "/FooBar/static/js/3.01af828b.chunk.js",
     "static/js/3.01af828b.chunk.js.map": "/FooBar/static/js/3.01af828b.chunk.js.map",
     "index.html": "/FooBar/index.html",
-    "static/css/main.1add0430.chunk.css.map": "/FooBar/static/css/main.1add0430.chunk.css.map",
-    "static/js/2.6546bbca.chunk.js.LICENSE.txt": "/FooBar/static/js/2.6546bbca.chunk.js.LICENSE.txt",
+    "static/css/main.b6f3ea14.chunk.css.map": "/FooBar/static/css/main.b6f3ea14.chunk.css.map",
+    "static/js/2.1cc07bc7.chunk.js.LICENSE.txt": "/FooBar/static/js/2.1cc07bc7.chunk.js.LICENSE.txt",
     "static/media/arrow.132e1dc7.svg": "/FooBar/static/media/arrow.132e1dc7.svg",
     "static/media/beer.ab028488.svg": "/FooBar/static/media/beer.ab028488.svg",
     "static/media/cart.6bbde604.svg": "/FooBar/static/media/cart.6bbde604.svg",
     "static/media/home.f8a0eabe.svg": "/FooBar/static/media/home.f8a0eabe.svg",
     "static/media/logo_dark.e18b6175.svg": "/FooBar/static/media/logo_dark.e18b6175.svg",
     "static/media/logo_white.9fdd9bc5.svg": "/FooBar/static/media/logo_white.9fdd9bc5.svg",
+    "static/media/long-arrow.d028148c.svg": "/FooBar/static/media/long-arrow.d028148c.svg",
+    "static/media/recycle-bin.83ccf2b8.svg": "/FooBar/static/media/recycle-bin.83ccf2b8.svg",
     "static/media/shop.d13cf86b.svg": "/FooBar/static/media/shop.d13cf86b.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.baf8b067.js",
-    "static/js/2.6546bbca.chunk.js",
-    "static/css/main.1add0430.chunk.css",
-    "static/js/main.e975dcac.chunk.js"
+    "static/js/2.1cc07bc7.chunk.js",
+    "static/css/main.b6f3ea14.chunk.css",
+    "static/js/main.d8749cb6.chunk.js"
   ]
 }
