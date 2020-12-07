@@ -4,7 +4,7 @@ import beerImages from "./BeerImages";
 // import  rating_star  from "../media/rating_star.svg";
 import Stars from "../icon-componenets/Stars"
 
-// From https://github.com/cluemediator/react-popup
+
 
 export default function Beer(props) {
   const filteredBeers = props.beers.filter(
@@ -21,17 +21,14 @@ export default function Beer(props) {
       props.editCartItems(props.item.name, -1);
     }
   };
-
   
-  
-
+// From https://github.com/cluemediator/react-popup
   const [isOpen, setIsOpen] = useState(false);
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
   };
   
-
   const handleToggle = () => {
     props.ratingToggle(props.item.name);
   };
