@@ -1,0 +1,88 @@
+@import "./styles/base";
+.cart-order {
+  margin-top: 150px;
+  margin-left: 150px;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+.cart-total {
+  margin-left: 150px;
+  margin-top: 0;
+  font-size: 30px;
+  font-weight: 300;
+  color: gray;
+}
+.next-step {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 10px 100px;
+}
+.back-shop {
+  border: none;
+  background-color: transparent;
+  font-size: 30px;
+}
+.back-arrow-dark {
+  transform: scaleX(-1);
+  height: 20px;
+}
+.pay {
+  background-color: $header-background-color;
+  color: white;
+  font-size: 50px;
+  padding: 40px 100px;
+  border: none;
+  border-radius: 100px;
+}
+.noBeers {
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  margin: 20vw 20vw;
+  gap: 50px;
+  h3 {
+    font-size: 43px;
+    font-weight: 100;
+  }
+}
+.CartItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr 2fr;
+  padding: 5vw;
+}
+
+.cart-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 22px;
+  object-fit: cover;
+  grid-column: 2;
+  grid-row: 1;
+}
+.bin {
+  height: 50px;
+  align-self: center;
+}
+.beer-name {
+  align-self: center;
+  grid-column: 3;
+  grid-row: 1;
+  padding-left: 1px;
+}
+.binbtn {
+  border: none;
+  background-color: transparent;
+}
+.cart-add-remove-btn {
+  grid-column: 4;
+  grid-row: 1;
+  align-self: center;
+  font-size: 30px;
+  .up,
+  .down {
+    border: none;
+    font-size: 30px;
+    background-color: transparent;
+    margin: 10px;
+  }
+}
