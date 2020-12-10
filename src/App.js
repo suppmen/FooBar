@@ -11,12 +11,29 @@ import cartImg from "./media/cart.svg";
 import homeImg from "./media/home.svg";
 import shopImg from "./media/shop.svg";
 
+// Theme changer
+import { ThemeProvider } from "styled-components";
+import { lightTheme, darkTheme } from "./modules/theme";
+import { GlobalStyles } from "./modules/global";
+import Toggle from "./components/Toggle";
+
 function App() {
+  const [theme, setTheme] = useState("light");
+
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
-
+  // The function that toggles between themes
+  const toggleTheme = () => {
+    // if the theme is not light, then set it to dark
+    if (theme === "light") {
+      setTheme("dark");
+      // otherwise, it should be light
+    } else {
+      setTheme("light");
+    }
+  };
 
   function sendPostRequest(order) {
     //this function is called from Form
@@ -71,6 +88,16 @@ function App() {
           <nav>
             <ul>
               <li>
+                <ThemeProvider
+                  theme={theme === "light" ? lightTheme : darkTheme}
+                >
+                  <>
+                    <GlobalStyles />
+                    <Toggle theme={theme} toggleTheme={toggleTheme} />
+                  </>
+                </ThemeProvider>
+              </li>
+              <li>
                 <Link to="/">
                   <img className="homeImg" src={homeImg} alt="homeImg" />
                   <p>Home</p>
@@ -95,7 +122,7 @@ function App() {
           <Switch>
             <Route path="/payment">
               <Payment
-               notificationsCount={notificationsCount}
+                notificationsCount={notificationsCount}
                 sendPostRequest={sendPostRequest}
                 cartItems={cartItems}
               />

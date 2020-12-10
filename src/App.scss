@@ -205,3 +205,16 @@ body {
     width: 100%;
   }
 }
+.togglebtn {
+  // position: fixed;
+  // bottom: 20px;
+  z-index: 101;
+  @include btn($third-color, white);
+  border: black solid 1px;
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 10px 10px;
+  align-self: center;
+  margin-top: 25%;
+  // left: 10px;
+}
