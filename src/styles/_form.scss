@@ -4,7 +4,7 @@ $input-focus-border: blue;
 $input-text-color: #c4c4c4;
 $input-padding: 12px;
 $header-font-properties: 30px, $font-stack, bold;
-$border-properties: 47px, #262d3b, 1px;
+$border-properties: 10px, #262d3b, 0px;
 
 @mixin border($radius, $color, $width) {
   border: {
@@ -21,6 +21,33 @@ $border-properties: 47px, #262d3b, 1px;
     weight: $weight;
   }
 }
+.paym {
+  background-color: $primary-color;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+.formbox {
+  position: absolute;
+  margin: 0 auto;
+  height: 50%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  // margin-top: calc(100vh - 85vh - 20px);
+  background: #fff;
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  padding: 50px 100px;
+  overflow: auto;
+  font-size: 20px;
+  h1 {
+    font-size: 50px;
+    text-align: left;
+  }
+}
 
 .Form {
   max-width: 400px;
@@ -33,7 +60,7 @@ form {
   p {
     margin-block-start: -1em;
     margin-block-end: 0em;
-    font-size: 13px;
+    font-size: 20px;
     margin-left: 14px;
     color: red;
   }
@@ -45,7 +72,7 @@ form {
   }
 
   div {
-    margin-bottom: 3vh;
+    margin-bottom: 1vh;
     display: grid;
   }
   div > * {
@@ -58,7 +85,7 @@ form {
     margin-bottom: 0;
 
     input {
-      width: 15vw;
+      width: 25vw;
       margin-bottom: 0vw;
     }
 
@@ -66,14 +93,22 @@ form {
       display: flex;
       flex-direction: column;
     }
+    .small-div1 {
+      display: flex;
+      flex-direction: column;
+      input {
+        width: 40vw;
+      }
+    }
   }
 
   input,
   select {
     outline: none;
-    background: #ffffff;
-    margin-top: 4vw;
+    background: #f4f4f4;
+    margin-top: 0vw;
     @include border($border-properties...);
+    height: 60px;
   }
 
   label {
@@ -111,8 +146,9 @@ form {
     border-color: transparent;
     color: white;
     font-size: 30px;
+    border-radius: 30px;
     padding: calc(#{$input-padding}/ 2);
-    margin: 0 0 10vh 0;
+    margin: 0 0 0 0;
     cursor: pointer;
 
     &:hover {
