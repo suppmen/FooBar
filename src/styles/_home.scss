@@ -68,3 +68,31 @@
   //   margin-bottom: 10px;
   // }
 }
+@media screen and (min-width: 1400px) {
+  .Home {
+    .logo {
+      height: auto;
+      width: 10vw;
+      margin-left: 20px;
+      margin-top: 6.5vw;
+    }
+  }
+  .Home {
+    h1 {
+      color: $header-background-color;
+      font-size: 5vw;
+    }
+  }
+
+  .Home {
+    .home-wrapper {
+      margin: 0 auto;
+      width: 30vw;
+      height: 30vw;
+      text-align: center;
+      border: $header-background-color 4px solid;
+      border-radius: 50%;
+      padding: 40px;
+    }
+  }
+}
