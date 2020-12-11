@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
+import { post, get, put } from "./modules/restdb";
+
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -24,6 +26,23 @@ function App() {
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
+  // Rating states
+  const [beersRating, setBeersRating] = useState([]);
+  const [rating, setRating] = useState(0);
+
+  // Rating
+  function updateRating(beerName, newRating) {
+    if (beersRating.length > 1) {
+      beerName = "Row 26";
+      newRating = [5];
+      console.log(beersRating);
+      const beerToUpdate = beersRating.filter((item) => item.name === beerName);
+      console.log(beerToUpdate);
+      const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
+      put(beerToUpdate[0]._id, newRatingList, setRating);
+    }
+  }
+  // updateRating("El Hefe", 5);
   // The function that toggles between themes
   const toggleTheme = () => {
     // if the theme is not light, then set it to dark
@@ -38,6 +57,7 @@ function App() {
   function sendPostRequest(order) {
     //this function is called from Form
     console.log("order from form", order);
+
     postOrder(order, sendMessage);
   }
 
@@ -77,12 +97,14 @@ function App() {
   }
 
   useEffect(() => {
+    get(setBeersRating);
     getData(setData, setCartItems);
     getBeers(setBeers);
   }, []);
 
   return (
     <div className="App">
+      <button onClick={updateRating}>Add 5 stars to hel hefe!</button>
       <Router>
         <div className="nav">
           <nav>
