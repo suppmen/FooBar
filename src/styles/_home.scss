@@ -6,9 +6,9 @@
   width: 100%;
   height: 100vh;
   background-color: $primary-color;
-  font: 100% $font-title-stack;
+  font: 100% $font-home-page-title-stack;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
   justify-items: center;
 }
 .Home {
@@ -31,28 +31,68 @@
 .Home {
   .logo {
     height: auto;
-    width: 150px;
+    width: 22vw;
+    margin-left: 20px;
+    margin-top: 4.5vw;
   }
 }
 .Home {
   h1 {
-    color: $third-color;
-    font-size: 2em;
+    color: $header-background-color;
+    font-size: 14vw;
+    font-weight: 100;
+    margin: 0;
+    letter-spacing: 5px;
   }
 }
 
 .Home {
   .home-wrapper {
-    display: grid;
-    grid-column: 2/3;
-    align-self: center;
-    justify-items: center;
+    // display: grid;
+    // grid-column: 2/3;
+    // position: relative;
+    // clear: both;
+    margin: 0 auto;
+    width: 50vw;
+    height: 50vw;
+    text-align: center;
+    border: $header-background-color 4px solid;
+    border-radius: 50%;
+    padding: 70px;
   }
 }
 .Home {
-  h1:nth-child(2) {
-    font-size: 3em;
-    margin-top: -20px;
-    margin-bottom: 10px;
+  // h1:nth-child(2) {
+  //   font-size: 3em;
+  //   margin-top: -20px;
+  //   margin-bottom: 10px;
+  // }
+}
+@media screen and (min-width: 1400px) {
+  .Home {
+    .logo {
+      height: auto;
+      width: 10vw;
+      margin-left: 20px;
+      margin-top: 6.5vw;
+    }
+  }
+  .Home {
+    h1 {
+      color: $header-background-color;
+      font-size: 5vw;
+    }
+  }
+
+  .Home {
+    .home-wrapper {
+      margin: 0 auto;
+      width: 30vw;
+      height: 30vw;
+      text-align: center;
+      border: $header-background-color 4px solid;
+      border-radius: 50%;
+      padding: 40px;
+    }
   }
 }

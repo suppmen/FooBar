@@ -152,7 +152,7 @@ export default function Form(props) {
           <div className="payment-end">
             <input className="submit" type="submit" value="Pay Now" />
           </div>
-          <Link to="/shop">
+          <Link to="/shop" className="continue">
             <img className="back-arrow-dark" src={arrow} alt="arrow" />
             Continue Shopping
           </Link>
