@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
-import Start from "./pages/Start";
+// import Start from "./pages/Start";
+import Home from "./pages/Home";
+
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
@@ -61,8 +63,13 @@ function App(props) {
     setCartItems(nextItems);
   }
 
+  // Displaying nav bar
+
+  function displayNav(bool) {
+    setShowNav(bool);
+  }
+
   const sendMessage = (data) => {
-    console.log("sucsesssssssssssssssssssssssssssssssss", data);
     setMessage(data);
     setIsPosted(true);
   };
@@ -115,8 +122,8 @@ function App(props) {
               />
             </Route>
             <Route path="/">
-              <Start
-                setShowNav={setShowNav}
+              <Home
+                displayNav={displayNav}
                 data={data}
                 beers={beers}
                 cartItems={cartItems}
