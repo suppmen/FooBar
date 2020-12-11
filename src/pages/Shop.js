@@ -3,6 +3,7 @@ import BeerList from "../components/BeerList";
 import Header from "../components/Header";
 
 export default function Shop(props) {
+  props.setShowNav(true);
   return (
     <div className="Shop">
       <Header

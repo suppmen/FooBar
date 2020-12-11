@@ -1,9 +1,10 @@
 @import "./styles/form";
 @import "./styles/shop";
-@import "./styles/home";
+@import "./styles/start";
 @import "./styles/header";
 @import "./styles/base";
 @import "./styles/cart";
+@import "./styles/message";
 
 a {
   color: inherit;
@@ -178,33 +179,7 @@ body {
     }
   }
 }
-// CartNotifications
 
-.CartNotifications {
-  .logo-dark {
-    width: 60px;
-    height: 70px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    align-self: flex-end;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    justify-items: end;
-    align-items: center;
-    flex-direction: column;
-  }
-  h1 {
-    margin-top: 20px;
-    color: $third-color;
-    align-self: flex-end;
-    text-align: center;
-    margin-right: 2px;
-    font-size: 1.2em;
-    width: 100%;
-  }
-}
 .togglebtn {
   // position: fixed;
   // bottom: 20px;

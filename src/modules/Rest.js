@@ -39,8 +39,7 @@ export function postOrder(payload, callback) {
     body: JSON.stringify(payload),
   })
     .then((res) => res.json())
-    .then((data) => console.log(data))
-    .then((response) => callback());
+    .then((data) => callback(data));
 }
 
 export function getBeers(callback) {
