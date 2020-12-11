@@ -28,6 +28,25 @@ $border-properties: 10px, #262d3b, 0px;
   top: 0;
   left: 0;
   position: fixed;
+  .total-price {
+    text-align: center;
+    padding-top: 35vw;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    grid-gap: 5vw;
+  }
+  .payment-cart {
+    width: 15vw;
+    justify-self: end;
+  }
+  h2 {
+    font-size: 8vw;
+    color: $header-background-color;
+    font-weight: 100;
+    justify-self: start;
+    align-self: center;
+    margin: 0;
+  }
 }
 .formbox {
   position: absolute;
@@ -198,6 +217,11 @@ form {
 /*------------------------------MEDIAQUERY 650px-----------------------*/
 
 @media screen and (min-width: 650px) {
+  .paym {
+    .total-price {
+      padding-top: 25vw;
+    }
+  }
   .Form {
     form {
       .expirationDate .small-div div input {
@@ -229,6 +253,61 @@ form {
       .expirationDate .small-div1 div input {
         width: auto;
       }
+    }
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .formbox {
+    height: 45%;
+    width: 40%;
+    bottom: 4vw;
+    padding: 2vw;
+    h1 {
+      font-size: 3vw;
+      margin: 0 0 15px 0;
+    }
+    border-radius: 5vw;
+  }
+  .paym {
+    .total-price {
+      padding: 300px;
+      grid-gap: 2vw;
+    }
+    .payment-cart {
+      width: 7vw;
+    }
+    h2 {
+      font-size: 4vw;
+    }
+  }
+  form {
+    padding: 1vw;
+    input {
+      height: 2vw;
+    }
+    div {
+      margin-bottom: 10px;
+    }
+    label {
+      font-size: 1vw;
+    }
+    p {
+      font-size: 1vw;
+    }
+    .expirationDate .small-div div input {
+      width: 93%;
+    }
+    .expirationDate .small-div1 div input {
+      width: 95%;
+    }
+    .submit {
+      height: 100px;
+      border-radius: 30px;
+      font-size: 2.5em;
+    }
+    .continue {
+      font-size: 1.5vw;
     }
   }
 }

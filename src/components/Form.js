@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import arrow from "../media/long-arrow.svg";
+import cart from "../media/cart.svg";
 import { Link } from "react-router-dom";
 
 //from https://www.youtube.com/watch?v=fTCTtCv8iN8
@@ -36,6 +37,11 @@ export default function Form(props) {
 
   return (
     <div className="paym">
+      <div className="total-price">
+        <img className="payment-cart" src={cart} alt="cart" />
+        <h2>= 45 DKK</h2>
+      </div>
+
       <div className="formbox">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1>Checkout</h1>
