@@ -35,8 +35,9 @@ export default function Beer(props) {
 
 
 
+
   return (
-    <article>
+    <article >
       <div className="BeersList">
 
       <div className={props.item.isStar ? "star-yellow" : "star"}>
