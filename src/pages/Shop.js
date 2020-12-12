@@ -21,7 +21,6 @@ export default function Shop(props) {
             data={props.data}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}
-            ratingToggle={props.ratingToggle}
           />
         }
       </section>

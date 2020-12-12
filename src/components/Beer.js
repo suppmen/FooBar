@@ -62,8 +62,7 @@ export default function Beer(props) {
           stars={props.stars}
           item={props.item}
           beerDetails={beerDetails}
-          handleClose={props.togglePopup}
-          ratingToggle={props.ratingToggle}
+          handleClose={togglePopup}
         />
       )}
     </article>

@@ -16,7 +16,6 @@ const Popup = (props) => {
       }
     });
 
-    console.log(nextStars);
     props.updateRating(props.beerDetails.name, rateArray, nextStars);
   }
   // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor

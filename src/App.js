@@ -189,7 +189,6 @@ function App() {
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
-                ratingToggle={ratingToggle}
               />
             </Route>
             <Route path="/cart">
