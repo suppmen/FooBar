@@ -1,10 +1,11 @@
 @import "./styles/base";
 
-$input-focus-border: blue;
-$input-text-color: #c4c4c4;
+$input-focus-border: #262d3b;
+$input-text-color: black;
+$label-text-color: #c4c4c4;
 $input-padding: 12px;
 $header-font-properties: 30px, $font-stack, bold;
-$border-properties: 10px, #262d3b, 0px;
+$border-properties: 11px, transparent, 1px;
 
 @mixin border($radius, $color, $width) {
   border: {
@@ -21,109 +22,111 @@ $border-properties: 10px, #262d3b, 0px;
     weight: $weight;
   }
 }
-.paym {
+
+//for the top in payment
+
+.top {
   background-color: $primary-color;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  position: fixed;
   .total-price {
+    color: #f7b71e;
     text-align: center;
-    padding-top: 35vw;
-    display: grid;
-    grid-template-columns: 0.8fr 1fr;
-    grid-gap: 5vw;
+    display: flex;
+    justify-content: center;
+    padding: {
+      block: 18vw 6vw;
+      top: 18vw;
+      bottom: 6vw;
+    }
+    h2 {
+      font-weight: 300;
+    }
   }
-  .payment-cart {
-    width: 15vw;
-    justify-self: end;
-  }
-  h2 {
-    font-size: 8vw;
-    color: $header-background-color;
-    font-weight: 100;
-    justify-self: start;
-    align-self: center;
-    margin: 0;
-  }
-}
-.formbox {
-  position: absolute;
-  margin: 0 auto;
-  height: 60%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  // margin-top: calc(100vh - 85vh - 20px);
-  background: #fff;
-  border-top-left-radius: 10vw;
-  border-top-right-radius: 10vw;
-  padding: 2vw 5vw;
-  overflow: auto;
-  font-size: 20px;
-  h1 {
-    font-size: 5.5vw;
-    text-align: left;
+
+  .mask {
+    height: 40px;
+    background-color: #fff;
+    border-top-right-radius: 10vw;
+    .triangle {
+      width: 0;
+      height: 0;
+      margin-left: 12vw;
+      border: {
+        left: 20px solid transparent;
+        right: 20px solid transparent;
+        top: 20px solid $primary-color;
+      }
+    }
   }
 }
+
+//for the form
 
 .Form {
   max-width: 400px;
   margin: auto;
+
+  .link-back {
+    //needs a smaller margin bottom when we remove the nav at the bottom
+    margin-bottom: 25vw;
+    text-align: center;
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      p {
+        margin: 0;
+      }
+    }
+  }
 }
-.submit {
-  height: 5.5vw;
-}
+
 form {
   padding: 1rem 3rem;
 
   p {
-    margin-block-start: -1em;
-    margin-block-end: 0em;
-    font-size: 2vw;
+    margin: {
+      block: -1.5em 0em;
+      top: -1.5em;
+      bottom: 0em;
+    }
+    font-size: 13px;
     margin-left: 14px;
     color: red;
   }
 
   h1 {
     text-align: center;
-    margin-bottom: 30px;
+    margin: {
+      block: 0px 16px;
+      top: 0px;
+      bottom: 16px;
+    }
     @include header($header-font-properties...);
   }
 
   div {
-    margin-bottom: 1vh;
+    margin-bottom: 3vh;
     display: grid;
   }
+
   div > * {
     grid-area: 1/1;
   }
+
   .expirationDate {
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: space-between;
-    // margin-bottom: 0;
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-gap: 1vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 0;
 
     input {
-      // width: 20vw;
+      width: 15vw;
       margin-bottom: 0vw;
     }
 
     .small-div {
-      // display: flex;
-      // flex-direction: column;
-      grid-column: 2;
-    }
-    .small-div1 {
-      // display: flex;
-      // flex-direction: column;
-      input {
-        // width: 30vw;
-      }
+      display: flex;
+      flex-direction: column;
     }
   }
 
@@ -131,19 +134,16 @@ form {
   select {
     outline: none;
     background: #f4f4f4;
-    margin-top: 0vw;
+    margin-top: 4vw;
     @include border($border-properties...);
-    height: 5.5vw;
-    font-size: 3vw;
   }
 
   label {
     place-self: center start;
     pointer-events: none;
-    color: $input-text-color;
+    color: $label-text-color;
     transform-origin: 0 100%;
     transform: translate(10px, 0);
-    font-size: 3vw;
   }
 
   input[type="text"],
@@ -151,6 +151,7 @@ form {
   select {
     color: $input-text-color;
     padding: $input-padding;
+    font-size: 16px;
 
     // Pseudo-classes / states
     &:focus {
@@ -160,7 +161,6 @@ form {
     &:not(:placeholder-shown) + label {
       transform: translate(0, -130%) scale(0.95);
       transition: 0.2s;
-      font-size: 2vw;
     }
   }
 
@@ -170,13 +170,15 @@ form {
 
   .submit {
     appearance: none;
-    background-color: #f0d172;
-    border-color: transparent;
+    background-color: #f7b71e;
+    border: {
+      color: transparent;
+      radius: 47px;
+    }
     color: white;
-    font-size: 3.5vw;
-    border-radius: 30px;
-    // padding: calc(#{$input-padding}/ 2);
-    margin: 0 0 0 0;
+    font-size: 30px;
+    padding: calc(#{$input-padding}/ 2);
+    margin: 0;
     cursor: pointer;
 
     &:hover {
@@ -186,9 +188,6 @@ form {
       transition: 0.2s;
     }
   }
-  .continue {
-    font-size: 3.5vw;
-  }
 }
 
 /*------------------------------MEDIAQUERY 500px-----------------------*/
@@ -196,19 +195,22 @@ form {
 @media screen and (min-width: 500px) {
   .Form {
     max-width: 300px;
-    margin-top: 8vh;
+    margin-top: 2vh;
 
     form {
       padding: 0;
+
       input,
       select {
         margin-top: 2vw;
       }
-      .expirationDate .small-div div input {
-        width: 30vw;
+
+      .submit {
+        margin-top: 0;
       }
-      .expirationDate .small-div1 div input {
-        width: 30vw;
+
+      .expirationDate .small-div div input {
+        width: 11vw;
       }
     }
   }
@@ -217,18 +219,15 @@ form {
 /*------------------------------MEDIAQUERY 650px-----------------------*/
 
 @media screen and (min-width: 650px) {
-  .paym {
+  .top {
     .total-price {
-      padding-top: 25vw;
+      padding-top: 12vw;
     }
   }
   .Form {
     form {
       .expirationDate .small-div div input {
-        // width: 8vw;
-      }
-      .expirationDate .small-div1 div input {
-        // width: 8vw;
+        width: 8vw;
       }
     }
   }
@@ -237,92 +236,50 @@ form {
 /*------------------------------MEDIAQUERY 900px-----------------------*/
 
 @media screen and (min-width: 900px) {
-  .formbox {
-    padding: 5vw 10vw;
-    height: 50%;
-  }
   .Form {
     form {
+      .expirationDate .small-div {
+        margin-bottom: 1vw;
+        div input {
+          width: 6vw;
+        }
+      }
+      p {
+        margin-top: -2em;
+      }
+    }
+  }
+}
+
+/*------------------------------MEDIAQUERY 1200px-----------------------*/
+
+@media screen and (min-width: 1200px) {
+  .Form {
+    form {
+      .expirationDate .small-div div input {
+        width: 5vw;
+      }
       input,
       select {
-        margin-top: 1vw;
+        margin-top: 1.2vw;
       }
-      .expirationDate .small-div div input {
-        width: auto;
-      }
-      .expirationDate .small-div1 div input {
-        width: auto;
+      input[type="text"],
+      input[type="tel"],
+      select {
+        padding-top: 1.2vw;
       }
     }
   }
 }
+
+/*------------------------------MEDIAQUERY 1400px-----------------------*/
 
 @media screen and (min-width: 1400px) {
-  .formbox {
-    height: 45%;
-    width: 40%;
-    bottom: 4vw;
-    padding: 2vw;
-    h1 {
-      font-size: 3vw;
-      margin: 0 0 15px 0;
+  .Form {
+    form {
+      .expirationDate .small-div div input {
+        width: 4vw;
+      }
     }
-    border-radius: 5vw;
-  }
-  .paym {
-    .total-price {
-      padding: 300px;
-      grid-gap: 2vw;
-    }
-    .payment-cart {
-      width: 7vw;
-    }
-    h2 {
-      font-size: 4vw;
-    }
-  }
-  form {
-    padding: 1vw;
-    input {
-      height: 2vw;
-    }
-    div {
-      margin-bottom: 10px;
-    }
-    label {
-      font-size: 1vw;
-    }
-    p {
-      font-size: 1vw;
-    }
-    .expirationDate .small-div div input {
-      width: 93%;
-    }
-    .expirationDate .small-div1 div input {
-      width: 95%;
-    }
-    .submit {
-      height: 100px;
-      border-radius: 30px;
-      font-size: 2.5em;
-    }
-    .continue {
-      font-size: 1.5vw;
-    }
-  }
-}
-
-/*------------------------------MEDIAQUERY IPHONE-----------------------*/
-@media screen and (max-width: 499px) {
-  .expirationDate .small-div input {
-    width: 20vw;
-  }
-  .expirationDate .small-div1 input {
-    width: 30vw;
-  }
-}
-@media screen and (max-width: 499px) {
-  .expirationDate .small-div1 input {
-    width: 25vw;
   }
 }

@@ -1,9 +1,13 @@
-@mixin slideInAnimation {
-  @for $i from 1 to 8 {
-    &:nth-child(#{$i}) {
-      animation: slide-in 0.5s cubic-bezier(0.5, 0, 0.5, 1) #{$i * 0.1}s both;
-    }
-  }
+// @mixin slideInAnimation {
+//   @for $i from 1 to 8 {
+//     &:nth-child(#{$i}) {
+//       animation: slide-in 0.5s cubic-bezier(0.5, 0, 0.5, 1) #{$i * 0.1}s both;
+//     }
+//   }
+// }
+
+.slide-in {
+  animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) 0.5s both;
 }
 
 @keyframes slide-in {

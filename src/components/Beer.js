@@ -26,8 +26,9 @@ export default function Beer(props) {
     setIsOpen(!isOpen);
   };
 
+
   return (
-    <article>
+    <article >
       <div className="BeersList">
         {beerImages.map((beerImage, index) => {
           if (props.item.name === beerImage.name) {
