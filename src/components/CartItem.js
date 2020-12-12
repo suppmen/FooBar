@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import beerImages from "./BeerImages";
 import bin from "../media/recycle-bin.svg";
 

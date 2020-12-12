@@ -1,26 +1,28 @@
 import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
-import { post, get, put } from "./modules/restdb";
+import { get, put } from "./modules/restdb";
 
+// import Start from "./pages/Start";
 import Home from "./pages/Home";
+
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
-import Loader from "./components/Loader";
+import Message from "./pages/Message";
+import Nav from "./components/Nav";
 import "./App.scss";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import cartImg from "./media/cart.svg";
-import homeImg from "./media/home.svg";
-import shopImg from "./media/shop.svg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 
-// Theme changer
-import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "./modules/theme";
-import { GlobalStyles } from "./modules/global";
-import Toggle from "./components/Toggle";
+export default function App() {
+  const [showNav, setShowNav] = useState(false);
+  const [isPosted, setIsPosted] = useState(false);
 
-function App() {
-  const [theme, setTheme] = useState("light");
+  const [message, setMessage] = useState("");
 
   const [beers, setBeers] = useState([]);
   const [data, setData] = useState({});
@@ -58,43 +60,18 @@ function App() {
     });
     setCartItems(nextCartItems);
   }
-  // The function that toggles between themes
-  const toggleTheme = () => {
-    // if the theme is not light, then set it to dark
-    if (theme === "light") {
-      setTheme("dark");
-      // otherwise, it should be light
-    } else {
-      setTheme("light");
-    }
-  };
 
   function sendPostRequest(order) {
     //this function is called from Form
-    console.log("order from form", order);
-
     postOrder(order, sendMessage);
   }
 
+  // Showing notifications
   let notificationsCount;
   if (cartItems.length > 1) {
     const reducer = (accumulator, currentValue) =>
       accumulator + currentValue.amount;
     notificationsCount = cartItems.reduce(reducer, 0);
-  }
-
-  function ratingToggle(name) {
-    //matching the name to the item in map
-    const nextItems = cartItems.map((item) => {
-      if (item.name === name) {
-        // chacking if the star is false, if it is, set it to true, else set it to false
-        !item.isStar ? (item.isStar = true) : (item.isStar = false);
-      }
-      return item;
-    });
-
-    console.log(nextItems, "nextItem");
-    setCartItems(nextItems);
   }
 
   function editCartItems(name, modifier) {
@@ -107,8 +84,10 @@ function App() {
     setCartItems(nextItems);
   }
 
-  function sendMessage() {
-    console.log("sucsesssssssssssssssssssssssssssssssss");
+  // Displaying nav bar
+
+  function displayNav(bool) {
+    setShowNav(bool);
   }
   function applyRating(data) {
     setBeersRating(data);
@@ -128,6 +107,10 @@ function App() {
     }
   }
 
+  const sendMessage = (data) => {
+    setMessage(data);
+    setIsPosted(true);
+  };
   useEffect(() => {
     getData(setData, setCartItems);
     getBeers(setBeers);
@@ -138,52 +121,29 @@ function App() {
     <div className="App">
       <Router>
         <div className="nav">
-          <nav>
-            <ul>
-              <li>
-                <ThemeProvider
-                  theme={theme === "light" ? lightTheme : darkTheme}
-                >
-                  <>
-                    <GlobalStyles />
-                    <Toggle theme={theme} toggleTheme={toggleTheme} />
-                  </>
-                </ThemeProvider>
-              </li>
-              <li>
-                <Link to="/">
-                  <img className="homeImg" src={homeImg} alt="homeImg" />
-                  <p>Home</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/shop">
-                  <img className="shopImg" src={shopImg} alt="shopImg" />
-                  <p>Shop</p>
-                </Link>
-              </li>
-              <li>
-                <Link to="/cart">
-                  <img className="cartImg" src={cartImg} alt="cart" />
-
-                  <p>Cart</p>
-                </Link>
-              </li>
-            </ul>
-          </nav>
+          {showNav && <Nav />}
 
           <Switch>
+            <Route path="/message">
+              <Message message={message} setShowNav={setShowNav} />
+            </Route>
             <Route path="/payment">
-              <Payment
-                notificationsCount={notificationsCount}
-                sendPostRequest={sendPostRequest}
-                cartItems={cartItems}
-              />
+              {isPosted ? (
+                <Redirect to="/message" />
+              ) : (
+                <Payment
+                  setShowNav={setShowNav}
+                  notificationsCount={notificationsCount}
+                  sendPostRequest={sendPostRequest}
+                  cartItems={cartItems}
+                />
+              )}
             </Route>
             <Route path="/shop">
               <Shop
                 updateRating={updateRating}
                 stars={stars}
+                setShowNav={setShowNav}
                 notificationsCount={notificationsCount}
                 data={data}
                 beers={beers}
@@ -203,6 +163,7 @@ function App() {
             </Route>
             <Route path="/">
               <Home
+                displayNav={displayNav}
                 data={data}
                 beers={beers}
                 cartItems={cartItems}
@@ -215,5 +176,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

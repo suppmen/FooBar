@@ -30,7 +30,7 @@ export default function Form(props) {
   const itemsArray = props.cartItems.filter((beer) => beer.amount > 0);
   
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = (event, data) => {
     console.log(data);
     props.sendPostRequest(itemsArray);
    
