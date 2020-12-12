@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
+import { post, get, put } from "./modules/restdb";
+
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
@@ -24,6 +26,38 @@ function App() {
   const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
+  // Rating states
+  const [beersRating, setBeersRating] = useState([]);
+  const [stars, setStars] = useState([
+    { isMarked: false, number: 1 },
+    { isMarked: false, number: 2 },
+    { isMarked: false, number: 3 },
+    { isMarked: false, number: 4 },
+    { isMarked: false, number: 5 },
+  ]);
+
+  // Rating
+  function updateRating(beerName, newRating, nextStars) {
+    if (beersRating.length > 1) {
+      setStars(nextStars);
+
+      const beerToUpdate = beersRating.filter((item) => item.name === beerName);
+      const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
+
+      put(beerToUpdate[0]._id, newRatingList, showRating);
+    }
+  }
+  function showRating(data) {
+    const nextArray = data.ratingArray;
+    const avarage = nextArray.reduce((a, b) => a + b, 0) / nextArray.length;
+    const nextCartItems = cartItems.map((item) => {
+      if (item.name === data.name) {
+        item.rating = avarage;
+      }
+      return item;
+    });
+    setCartItems(nextCartItems);
+  }
   // The function that toggles between themes
   const toggleTheme = () => {
     // if the theme is not light, then set it to dark
@@ -38,6 +72,7 @@ function App() {
   function sendPostRequest(order) {
     //this function is called from Form
     console.log("order from form", order);
+
     postOrder(order, sendMessage);
   }
 
@@ -75,10 +110,28 @@ function App() {
   function sendMessage() {
     console.log("sucsesssssssssssssssssssssssssssssssss");
   }
+  function applyRating(data) {
+    setBeersRating(data);
+    if (cartItems.length > 1) {
+      const nextItems = cartItems.map((beer) => {
+        data.forEach((rating) => {
+          if (beer.name === rating.name) {
+            const avarage =
+              rating.ratingArray.reduce((a, b) => a + b, 0) /
+              rating.ratingArray.length;
+            beer.rating = avarage;
+          }
+        });
+        return beer;
+      });
+      setCartItems(nextItems);
+    }
+  }
 
   useEffect(() => {
     getData(setData, setCartItems);
     getBeers(setBeers);
+    get(applyRating);
   }, []);
 
   return (
@@ -129,12 +182,13 @@ function App() {
             </Route>
             <Route path="/shop">
               <Shop
+                updateRating={updateRating}
+                stars={stars}
                 notificationsCount={notificationsCount}
                 data={data}
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
-                ratingToggle={ratingToggle}
               />
             </Route>
             <Route path="/cart">

@@ -19,9 +19,8 @@ export function getData(callback1, callback2) {
           updatedData.push({
             name: item.beer,
             amount: 0,
-            isStar: false,
             price: 45,
-            stars: 0,
+            rating: 3,
           });
         }
       });

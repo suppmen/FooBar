@@ -15,11 +15,12 @@ export default function Shop(props) {
       <section className="beerListCenter">
         {
           <BeerList
+            updateRating={props.updateRating}
+            stars={props.stars}
             beers={props.beers}
             data={props.data}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}
-            ratingToggle={props.ratingToggle}
           />
         }
       </section>
