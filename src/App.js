@@ -28,21 +28,36 @@ function App() {
 
   // Rating states
   const [beersRating, setBeersRating] = useState([]);
-  const [rating, setRating] = useState(0);
+  const [stars, setStars] = useState([
+    { isMarked: false, number: 1 },
+    { isMarked: false, number: 2 },
+    { isMarked: false, number: 3 },
+    { isMarked: false, number: 4 },
+    { isMarked: false, number: 5 },
+  ]);
 
   // Rating
-  function updateRating(beerName, newRating) {
+  function updateRating(beerName, newRating, nextStars) {
     if (beersRating.length > 1) {
-      beerName = "Row 26";
-      newRating = [5];
-      console.log(beersRating);
+      setStars(nextStars);
+
       const beerToUpdate = beersRating.filter((item) => item.name === beerName);
-      console.log(beerToUpdate);
       const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
-      put(beerToUpdate[0]._id, newRatingList, setRating);
+
+      put(beerToUpdate[0]._id, newRatingList, showRating);
     }
   }
-  // updateRating("El Hefe", 5);
+  function showRating(data) {
+    const nextArray = data.ratingArray;
+    const avarage = nextArray.reduce((a, b) => a + b, 0) / nextArray.length;
+    const nextCartItems = cartItems.map((item) => {
+      if (item.name === data.name) {
+        item.rating = avarage;
+      }
+      return item;
+    });
+    setCartItems(nextCartItems);
+  }
   // The function that toggles between themes
   const toggleTheme = () => {
     // if the theme is not light, then set it to dark
@@ -95,16 +110,32 @@ function App() {
   function sendMessage() {
     console.log("sucsesssssssssssssssssssssssssssssssss");
   }
+  function applyRating(data) {
+    setBeersRating(data);
+    if (cartItems.length > 1) {
+      const nextItems = cartItems.map((beer) => {
+        data.forEach((rating) => {
+          if (beer.name === rating.name) {
+            const avarage =
+              rating.ratingArray.reduce((a, b) => a + b, 0) /
+              rating.ratingArray.length;
+            beer.rating = avarage;
+          }
+        });
+        return beer;
+      });
+      setCartItems(nextItems);
+    }
+  }
 
   useEffect(() => {
-    get(setBeersRating);
     getData(setData, setCartItems);
     getBeers(setBeers);
+    get(applyRating);
   }, []);
 
   return (
     <div className="App">
-      <button onClick={updateRating}>Add 5 stars to hel hefe!</button>
       <Router>
         <div className="nav">
           <nav>
@@ -151,6 +182,8 @@ function App() {
             </Route>
             <Route path="/shop">
               <Shop
+                updateRating={updateRating}
+                stars={stars}
                 notificationsCount={notificationsCount}
                 data={data}
                 beers={beers}

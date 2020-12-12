@@ -48,19 +48,6 @@ export function put(id, newRatingList, callback) {
   })
     .then((e) => e.json())
     .then((t) => {
-      callback(newRatingList, id);
+      callback(t);
     });
-}
-
-export function deleteIt(id, callback) {
-  fetch(`${endpoint}/${id}`, {
-    method: "delete",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": key,
-      "cache-control": "no-cache",
-    },
-  })
-    .then((d) => d.json())
-    .then((t) => callback(id));
 }

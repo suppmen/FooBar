@@ -22,9 +22,9 @@
   margin-bottom: 50px;
   margin-top: 50px;
 
-  article {
-    @include slideInAnimation;
-  }
+  // article {
+  //   @include slideInAnimation;
+  // }
 }
 
 .BeersList {
@@ -41,18 +41,26 @@
   object-fit: cover;
 }
 
+.rating {
+  display: flex;
+}
+
 .ratingImg {
-  position: absolute;
-  margin-left: 88px;
-  margin-top: 5px;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 70px;
+  cursor: pointer;
 }
 .star-yellow {
-  fill: #f6c83f;
+  fill: #f0d172;
 }
 .star {
   fill: #faf0e3;
 }
 
+.ratingImg:hover {
+  fill: #f0d172;
+}
 .beer-buttons {
   align-self: center;
   width: 250px;
