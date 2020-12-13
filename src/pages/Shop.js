@@ -3,6 +3,7 @@ import BeerList from "../components/BeerList";
 import Header from "../components/Header";
 
 export default function Shop(props) {
+  props.setShowNav(true);
   return (
     <div className="Shop">
       <Header
@@ -15,11 +16,12 @@ export default function Shop(props) {
       <section className="beerListCenter">
         {
           <BeerList
+            updateRating={props.updateRating}
+            stars={props.stars}
             beers={props.beers}
             data={props.data}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}
-            ratingToggle={props.ratingToggle}
           />
         }
       </section>

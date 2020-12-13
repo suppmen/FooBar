@@ -12,17 +12,18 @@ export function getData(callback1, callback2) {
     })
     .then((data) => {
       callback1(data);
-      const updatedData=[];
+      const updatedData = [];
 
-        data.taps.forEach((item) => {
-          if(updatedData.filter(i=>i.name===item.beer).length===0){
-            updatedData.push({
-                name: item.beer,
-                amount: 0,
-                isStar: false,
-              })
-          }}
-          );
+      data.taps.forEach((item) => {
+        if (updatedData.filter((i) => i.name === item.beer).length === 0) {
+          updatedData.push({
+            name: item.beer,
+            amount: 0,
+            price: 45,
+            rating: 3,
+          });
+        }
+      });
       console.log(updatedData, "x");
       callback2(updatedData);
     });
@@ -37,8 +38,7 @@ export function postOrder(payload, callback) {
     body: JSON.stringify(payload),
   })
     .then((res) => res.json())
-    .then(data=> console.log(data))
-    .then((response) => callback());
+    .then((data) => callback(data));
 }
 
 export function getBeers(callback) {

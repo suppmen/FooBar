@@ -1,9 +1,13 @@
-@mixin slideInAnimation {
-  @for $i from 1 to 8 {
-    &:nth-child(#{$i}) {
-      animation: slide-in 0.5s cubic-bezier(0.5, 0, 0.5, 1) #{$i * 0.1}s both;
-    }
-  }
+// @mixin slideInAnimation {
+//   @for $i from 1 to 8 {
+//     &:nth-child(#{$i}) {
+//       animation: slide-in 0.5s cubic-bezier(0.5, 0, 0.5, 1) #{$i * 0.1}s both;
+//     }
+//   }
+// }
+
+.slide-in {
+  animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) 0.5s both;
 }
 
 @keyframes slide-in {
@@ -22,9 +26,9 @@
   margin-bottom: 50px;
   margin-top: 50px;
 
-  article {
-    @include slideInAnimation;
-  }
+  // article {
+  //   @include slideInAnimation;
+  // }
 }
 
 .BeersList {
@@ -41,18 +45,26 @@
   object-fit: cover;
 }
 
+.rating {
+  display: flex;
+}
+
 .ratingImg {
-  position: absolute;
-  margin-left: 88px;
-  margin-top: 5px;
+  flex-direction: row;
+  margin-top: 20px;
+  width: 70px;
+  cursor: pointer;
 }
 .star-yellow {
-  fill: #f6c83f;
+  fill: #f0d172;
 }
 .star {
   fill: #faf0e3;
 }
 
+.ratingImg:hover {
+  fill: #f0d172;
+}
 .beer-buttons {
   align-self: center;
   width: 250px;
@@ -66,14 +78,15 @@
   flex-flow: row-reverse;
   border: none;
   border-radius: 22px;
-  background-color: rgba(196, 196, 196, 0.37);
 
   button {
     border: none;
     background-color: transparent;
     font-size: x-large;
+    cursor: pointer;
   }
   input {
+    cursor: pointer;
     border: none;
     background-color: transparent;
   }
@@ -88,6 +101,7 @@
   flex-direction: row;
   align-items: center;
   align-self: center;
+  color: black;
 }
 
 .beerListCenter {
