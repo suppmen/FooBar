@@ -33,20 +33,18 @@ function Nav() {
 
   return (
     <nav>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <>
+          <GlobalStyles />
+          <Toggle theme={theme} toggleTheme={toggleTheme} />
+        </>
+      </ThemeProvider>
       <ul>
         <li>
-          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-            <>
-              <GlobalStyles />
-              <Toggle theme={theme} toggleTheme={toggleTheme} />
-            </>
-          </ThemeProvider>
-        </li>
-        {/* <li>
           <NavLink to="/">
             <HomeIcon className="navIcon" /> <p>Home</p>
           </NavLink>
-        </li> */}
+        </li>
         <li>
           <NavLink activeClassName="selected" to="/shop">
             <ShopIcon className="navIcon" />
