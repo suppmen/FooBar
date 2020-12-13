@@ -7,14 +7,14 @@ export default function Message(props) {
   return (
     <div className="Message">
       <article className="Message-wrapper">
-        <h1>I am message</h1>
-        <h1>{props.message.id}</h1>
         <div className="Message-title">
-          <h1>Welcome to</h1>
-          <h1>FooBar</h1>
+          <h1>Hurray!</h1>
         </div>
+        <h1>Thank you for your order</h1>
+        <h1>Your order number is</h1>
+        <span>#{props.message.id}</span>
         <Link to="/">
-          <button className="start-btn">Continue</button>
+          <button className="finish-btn">Finish</button>
         </Link>
       </article>
     </div>

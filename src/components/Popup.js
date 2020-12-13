@@ -89,6 +89,13 @@ const Popup = (props) => {
         <div className="boxes">
           <div className="small-box">
             <p>
+              Size:
+              <br></br>
+              <span>500ml</span>
+            </p>
+          </div>
+          <div className="small-box">
+            <p>
               Alcohol:
               <br></br>
               <span>{props.beerDetails.alc}</span>

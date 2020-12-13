@@ -8,12 +8,35 @@
   justify-items: center;
 }
 .Message {
-  .message-btn {
-    @include btn($body-primary-color, $secondery-color);
+  .finish-btn {
+    @include btn(white, $header-background-color);
     text-transform: uppercase;
-    margin-top: 50px;
-    font-size: 1.4em;
-    margin-right: 20px;
+    margin-top: 30px;
+    font-size: 3em;
+    font-weight: 400;
+    padding: 20px 70px;
+  }
+}
+.Message {
+  .Message-wrapper {
+    h1 {
+      color: $third-color;
+      font-size: 3rem;
+      font-weight: 500;
+    }
+    .Message-title {
+      h1 {
+        color: $header-background-color;
+        font-size: 5rem;
+        font-weight: bold;
+      }
+    }
+    span {
+      font-size: 5rem;
+      font-weight: 500;
+      margin-bottom: 50px;
+      color: $header-background-color;
+    }
   }
 }
 .Message {
@@ -26,13 +49,12 @@
 
 .Message {
   h1 {
-    color: $third-color;
     font-size: 2em;
   }
 }
 
 .Message {
-  .message-wrapper {
+  .Message-wrapper {
     display: grid;
     grid-column: 2/3;
     align-self: center;
