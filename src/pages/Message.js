@@ -13,9 +13,14 @@ export default function Message(props) {
         <h1>Thank you for your order</h1>
         <h1>Your order number is</h1>
         <span>#{props.message.id}</span>
-        <Link to="/">
+        {/* <Link to="/">
           <button className="finish-btn">Finish</button>
-        </Link>
+        </Link> */}
+        
+          <button className="finish-btn">
+          <a onClick={() => {window.location.href="https://suppmen.github.io/FooBar/"}}>Finish</a>
+          </button>
+        
       </article>
     </div>
   );
