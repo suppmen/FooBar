@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../media/logo_dark.svg";
+import BeerIcon from "../icon-componenets/BeerIcon";
 import Cart from "../pages/Cart";
 import { Link } from "react-router-dom";
 
@@ -7,9 +7,12 @@ export default function CartNotifications(props) {
   return (
     <div className="CartNotifications">
       <Link to="/cart">
-        <div className="logo-dark" style={{ backgroundImage: `url(${logo})` }}>
-          <h1>{props.notificationsCount}</h1>
-        </div>
+        <BeerIcon className="logo-dark"></BeerIcon>
+        <h1 className="notifications">{props.notificationsCount}</h1>
+        {/* <div
+          className="logo-dark"
+          style={{ backgroundImage: `url(${logo})` }}
+        ></div> */}
       </Link>
     </div>
   );

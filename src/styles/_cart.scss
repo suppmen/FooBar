@@ -25,6 +25,11 @@
 .back-arrow-dark {
   transform: scaleX(-1);
   height: 20px;
+  margin-right: 10px;
+}
+.back-arrow {
+  height: 20px;
+  margin-right: 10px;
 }
 .pay {
   background-color: $header-background-color;

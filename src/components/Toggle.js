@@ -8,13 +8,13 @@ const Toggle = ({ theme, toggleTheme }) => {
   return (
     <button
       style={{
-        color: theme === "light" ? "#24262b" : "white",
-        background: theme === "light" ? "white" : "#24262b",
+        color: theme === "light" ? "white" : "#262D3B",
+        background: theme === "light" ? "#262D3B" : "white",
       }}
       className="togglebtn"
       onClick={toggleTheme}
     >
-      {theme === "light" ? "Light theme" : "Dark theme"}
+      {theme !== "light" ? "Light mode" : "Dark mode"}
     </button>
   );
 };

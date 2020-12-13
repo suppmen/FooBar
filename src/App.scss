@@ -144,10 +144,10 @@ body {
   }
   .navIcon {
     fill: black;
+    margin-top: 23px;
   }
   .selected {
-    // fill: $header-background-color;
-
+    color: $header-background-color;
     .navIcon {
       fill: $header-background-color;
     }
@@ -158,9 +158,9 @@ body {
     ul {
       display: flex;
       width: 100%;
-      justify-content: space-around;
-      padding: 0;
+      justify-content: space-evenly;
       margin: 0;
+      padding: 0;
       box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.164);
     }
   }
@@ -172,28 +172,25 @@ body {
       list-style: none;
       text-transform: uppercase;
       font-weight: 400;
+      align-self: center;
       a {
         display: flex;
         flex-direction: column;
         color: $header-background-color;
         justify-content: center;
-        font-size: 0.7em;
-
-        img {
-          width: 30px;
-          align-self: center;
-          margin-top: 20px;
-          margin-bottom: -10px;
-          fill: $highlight-color;
-        }
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        color: black;
       }
     }
   }
 }
 
 .togglebtn {
-  // position: fixed;
-  // bottom: 20px;
+  position: fixed;
+  bottom: 40px;
+  cursor: pointer;
   z-index: 101;
   @include btn($third-color, white);
   border: black solid 1px;
@@ -201,6 +198,5 @@ body {
   font-size: 0.8rem;
   padding: 10px 10px;
   align-self: center;
-  margin-top: 25%;
-  // left: 10px;
+  left: 50px;
 }
