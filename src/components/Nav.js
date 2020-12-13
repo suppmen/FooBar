@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import cartImg from "../media/cart.svg";
-import homeImg from "../media/home.svg";
-import shopImg from "../media/shop.svg";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  NavLink,
+} from "react-router-dom";
+import CartIcon from "../icon-componenets/Cart";
+import HomeIcon from "../icon-componenets/Home";
+import ShopIcon from "../icon-componenets/Shop";
 
 // Theme changer
 import { ThemeProvider } from "styled-components";
@@ -36,24 +42,22 @@ function Nav() {
             </>
           </ThemeProvider>
         </li>
+        {/* <li>
+          <NavLink to="/">
+            <HomeIcon className="navIcon" /> <p>Home</p>
+          </NavLink>
+        </li> */}
         <li>
-          <Link to="/">
-            <img className="homeImg" src={homeImg} alt="homeImg" />
-            <p>Home</p>
-          </Link>
-        </li>
-        <li>
-          <Link to="/shop">
-            <img className="shopImg" src={shopImg} alt="shopImg" />
+          <NavLink activeClassName="selected" to="/shop">
+            <ShopIcon className="navIcon" />
             <p>Shop</p>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/cart">
-            <img className="cartImg" src={cartImg} alt="cart" />
-
+          <NavLink activeClassName="selected" to="/cart">
+            <CartIcon className="navIcon" />
             <p>Cart</p>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

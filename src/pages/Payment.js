@@ -10,7 +10,7 @@ export default function Payment(props) {
       <div className="top">
         <div className="total-price">
           <img className="payment-cart" src={cart} alt="cart" />
-          <h2>= 45 DKK</h2>
+          <h2>= {props.totalPrice} DKK</h2>
         </div>
         <div className="mask">
           <div className="triangle"></div>

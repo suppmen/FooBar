@@ -68,10 +68,12 @@ export default function App() {
 
   // Showing notifications
   let notificationsCount;
+  let totalPrice;
   if (cartItems.length > 1) {
     const reducer = (accumulator, currentValue) =>
       accumulator + currentValue.amount;
     notificationsCount = cartItems.reduce(reducer, 0);
+    totalPrice = 45 * notificationsCount;
   }
 
   function editCartItems(name, modifier) {
@@ -132,6 +134,7 @@ export default function App() {
                 <Redirect to="/message" />
               ) : (
                 <Payment
+                  totalPrice={totalPrice}
                   setShowNav={setShowNav}
                   notificationsCount={notificationsCount}
                   sendPostRequest={sendPostRequest}
@@ -153,6 +156,7 @@ export default function App() {
             </Route>
             <Route path="/cart">
               <Cart
+                displayNav={displayNav}
                 notificationsCount={notificationsCount}
                 data={data}
                 beers={beers}

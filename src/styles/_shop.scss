@@ -16,7 +16,9 @@
     opacity: 0;
   }
 }
-
+.Beer {
+  z-index: 100;
+}
 .beerCartWrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -34,6 +36,7 @@
 .BeersList {
   display: flex;
   flex-flow: column;
+  z-index: 100;
 }
 
 .beer-tap-img {

@@ -11,6 +11,7 @@ export default function BeerList(props) {
           beerItemsArray.map((item, index) => {
             return (
               <Beer
+                setShowNav={props.setShowNav}
                 updateRating={props.updateRating}
                 stars={props.stars}
                 key={index}

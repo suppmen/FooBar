@@ -5,6 +5,8 @@ import beerImages from "./BeerImages";
 import Star from "../icon-componenets/Star";
 
 const Popup = (props) => {
+  // props.setShowNav(false);
+
   function rateBeer(event) {
     let rate = event.currentTarget.getAttribute("data-rate");
     let rateArray = [parseInt(rate)];

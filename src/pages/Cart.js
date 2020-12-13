@@ -6,6 +6,8 @@ import arrow from "../media/long-arrow.svg";
 import { Link } from "react-router-dom";
 
 export default function Cart(props) {
+  props.displayNav(true);
+
   function Nobeers() {
     if (props.notificationsCount === 0) {
       return (
@@ -26,9 +28,9 @@ export default function Cart(props) {
               Continue Shopping
             </Link>
           </button>
-          <button className="pay">
-            <Link to="/payment">Pay</Link>
-          </button>
+          <Link to="/payment">
+            <button className="pay">Pay</button>
+          </Link>
         </div>
       );
     }
@@ -61,7 +63,6 @@ export default function Cart(props) {
       />
       <Nobeers />
       <div></div>
-
     </section>
   );
 }
