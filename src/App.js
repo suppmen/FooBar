@@ -175,6 +175,7 @@ export default function App() {
                 cartItems={cartItems}
                 editCartItems={editCartItems}
                 sendPostRequest={sendPostRequest}
+                totalPrice={totalPrice}
               />
             </Route>
             <Route path="/">

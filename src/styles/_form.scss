@@ -76,6 +76,10 @@ $border-properties: 11px, transparent, 1px;
       p {
         margin: 0;
       }
+      .back-arrow-dark {
+        transform: scaleX(-1);
+        height: 20px;
+      }
     }
   }
 }

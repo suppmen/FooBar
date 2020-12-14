@@ -1,7 +1,7 @@
 import React from "react";
 import CartList from "../components/CartList";
 
-import ArrowIcon from "../icon-componenets/Arrow";
+import arrow from "../media/long-arrow.svg";
 
 import { Link } from "react-router-dom";
 
@@ -22,16 +22,18 @@ export default function Cart(props) {
       console.log("we have an order");
       return (
         <div className="next-step">
-          <button className="back-shop">
-            <Link to="/shop">
-              {/* <img className="back-arrow-dark" src={arrow} alt="arrow" /> */}
-              <ArrowIcon className="back-arrow" />
-              Continue Shopping
-            </Link>
-          </button>
           <Link to="/payment">
             <button className="pay">Pay</button>
           </Link>
+
+
+          <div className="link-back">
+          <Link to="/shop" className="continue">
+            <img className="back-arrow-dark" src={arrow} alt="arrow" />
+            <p>Continue Shopping</p>  
+          </Link>
+
+          </div>
         </div>
       );
     }
@@ -53,7 +55,7 @@ export default function Cart(props) {
   }
 
   return (
-    <section>
+    <section className="cart-section">
       <h2 className="cart-order">Your Order</h2>
       <Total />
       <CartList
@@ -62,6 +64,8 @@ export default function Cart(props) {
         editCartItems={props.editCartItems}
         notificationsCount={props.notificationsCount}
       />
+      <h3 className={props.totalPrice>0?"total-price": "hide"}>
+        Total: {props.totalPrice} DKK</h3>
       <Nobeers />
       <div></div>
     </section>

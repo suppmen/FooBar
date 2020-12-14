@@ -1,93 +1,349 @@
 @import "./styles/base";
+
 .cart-order {
-  margin-top: 150px;
-  margin-left: 150px;
-  font-size: 50px;
-  margin-bottom: 0;
+  font-size: 40px;
+  margin: {
+    top: 10vw;
+    bottom: 0;
+    left: 6vw;
+  }
 }
 .cart-total {
-  margin-left: 150px;
-  margin-top: 0;
   font-size: 30px;
   font-weight: 300;
   color: gray;
+  margin: {
+    top: 0;
+    bottom: 14vw;
+    left: 8vw;
+  }
 }
+
+.CartList {
+  margin: {
+    top: 0;
+    bottom: 14vw;
+  }
+}
+
+.CartItem {
+  display: grid;
+  grid-template-columns: 1fr 2fr 4fr 2fr;
+  margin: {
+    top: 6vw;
+    bottom: 6vw;
+  }
+  padding: {
+    left: 4vw;
+    right: 4vw;
+  }
+  .bin {
+    width: 75%;
+    align-self: center;
+  }
+  .cart-img {
+    width: 90%;
+    height: 20vw;
+    object-fit: cover;
+    border-radius: 22px;
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+  }
+  .beer-name {
+    grid-column: 3;
+    grid-row: 1;
+    h1 {
+      font: {
+        weight: 400;
+        size: 1.2rem;
+      }
+      margin-top: 3vw;
+      margin-bottom: 0.3vw;
+    }
+    p {
+      margin: 0;
+      opacity: 0.8;
+    }
+  }
+
+  .cart-add-remove-btn {
+    grid-column: 4;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    margin: {
+      left: 4vw;
+    }
+
+    button {
+      border: none;
+      background-color: transparent;
+      font-size: 1.5rem;
+    }
+    p {
+      font-size: 1.3rem;
+      margin: {
+        left: 2vw;
+        right: 2vw;
+      }
+    }
+  }
+}
+
 .next-step {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin: 10px 100px;
+  justify-content: center;
+
+  .link-back {
+    margin: {
+      top: 6vw;
+      bottom: 50vw;
+    }
+    text-align: center;
+    a {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      p {
+        margin: 0;
+      }
+      .back-arrow-dark {
+        transform: scaleX(-1);
+        height: 20px;
+      }
+    }
+  }
 }
-.back-shop {
-  border: none;
-  background-color: transparent;
-  font-size: 30px;
-}
-.back-arrow-dark {
-  transform: scaleX(-1);
-  height: 20px;
-  margin-right: 10px;
-}
-.back-arrow {
-  height: 20px;
-  margin-right: 10px;
-}
+
 .pay {
-  background-color: $header-background-color;
+  appearance: none;
+  background-color: #f7b71e;
+  font-size: 30px;
+  border: {
+    color: transparent;
+    radius: 47px;
+  }
   color: white;
-  font-size: 50px;
-  padding: 40px 100px;
-  border: none;
-  border-radius: 100px;
+  margin: 0;
+  cursor: pointer;
+  width: 65vw;
+  padding: {
+    top: 1.5;
+    bottom: 1.5vw;
+  }
 }
+
 .noBeers {
   display: flex;
   flex-flow: column;
   text-align: center;
-  margin: 20vw 20vw;
-  gap: 50px;
+  gap: 1vw;
   h3 {
-    font-size: 43px;
+    font-size: 40px;
     font-weight: 100;
+    padding: {
+      left: 1vw;
+      right: 1vw;
+    }
   }
 }
-.CartItem {
-  display: grid;
-  grid-template-columns: 1fr 2fr 4fr 2fr;
-  padding: 5vw;
+
+.CartList {
+  margin-top: 10vw;
+  border-bottom: 1px solid;
 }
 
-.cart-img {
-  width: 150px;
-  height: 150px;
-  border-radius: 22px;
-  object-fit: cover;
-  grid-column: 2;
-  grid-row: 1;
+.hide {
+  visibility: hidden;
 }
-.bin {
-  height: 50px;
-  align-self: center;
+.total-price {
+  text-align: end;
+  margin-right: 20vw;
 }
-.beer-name {
-  align-self: center;
-  grid-column: 3;
-  grid-row: 1;
-  padding-left: 1px;
+
+/*------------------------------MEDIAQUERY 450px-----------------------*/
+
+@media screen and (min-width: 450px) {
+  .noBeers h3 {
+    padding: {
+      left: 2vw;
+      right: 2vw;
+    }
+  }
+  .CartItem .cart-img {
+    width: 80%;
+    height: 18vw;
+  }
+  .pay {
+    width: 50vw;
+  }
+
+  .total-price {
+    margin-right: 28vw;
+  }
 }
-.binbtn {
-  border: none;
-  background-color: transparent;
+
+/*------------------------------MEDIAQUERY 500px-----------------------*/
+
+@media screen and (min-width: 500px) {
+  .noBeers h3 {
+    padding: {
+      left: 14vw;
+      right: 14vw;
+    }
+  }
+
+  .CartItem {
+    .cart-img {
+      width: 70%;
+      height: 16vw;
+    }
+  }
+
+  .pay {
+    width: 46vw;
+  }
 }
-.cart-add-remove-btn {
-  grid-column: 4;
-  grid-row: 1;
-  align-self: center;
-  font-size: 30px;
-  .up,
-  .down {
-    border: none;
-    font-size: 30px;
-    background-color: transparent;
-    margin: 10px;
+
+/*------------------------------MEDIAQUERY 650px-----------------------*/
+
+@media screen and (min-width: 650px) {
+  .cart-total {
+    margin: {
+      bottom: 6vw;
+    }
+  }
+  .noBeers h3 {
+    padding: {
+      left: 24vw;
+      right: 24vw;
+    }
+  }
+
+  .CartItem {
+    .cart-img {
+      width: 60%;
+      height: 14vw;
+    }
+    .beer-name {
+      margin-left: -4vw;
+      p {
+        font-size: 1.3rem;
+      }
+    }
+  }
+
+  .CartItem .beer-name h1 {
+    font-size: 1.6rem;
+  }
+
+  .pay {
+    width: 38vw;
+    padding: {
+      top: 1vw;
+      bottom: 1vw;
+    }
+  }
+
+  .next-step {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: {
+      top: 0;
+      bottom: 30vw;
+    }
+    .link-back {
+      align-self: center;
+      margin: {
+        right: 3vw;
+        top: 0;
+        bottom: 0;
+      }
+    }
+  }
+  .total-price {
+    margin-right: 18vw;
+    font-size: 3.5vw;
+  }
+}
+
+/*------------------------------MEDIAQUERY 800px-----------------------*/
+
+@media screen and (min-width: 800px) {
+  .cart-order {
+    font-size: 50px;
+  }
+  .cart-order,
+  .cart-total {
+    margin: {
+      left: 12vw;
+    }
+  }
+
+  .CartItem {
+    padding: {
+      left: 6vw;
+      right: 6vw;
+    }
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .bin {
+      width: 60%;
+    }
+    .cart-img {
+      width: 54%;
+      height: 12vw;
+    }
+
+    .cart-add-remove-btn {
+      button {
+        font-size: 2rem;
+      }
+      p {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  .pay {
+    width: 32vw;
+  }
+
+  .total-price {
+    margin-right: 24vw;
+  }
+}
+
+/*------------------------------MEDIAQUERY 1000px-----------------------*/
+
+@media screen and (min-width: 1000px) {
+  .CartList {
+    margin-bottom: 10vw;
+  }
+  .CartItem .cart-img {
+    width: 54%;
+    height: 12vw;
+  }
+  .pay {
+    width: 26vw;
+  }
+  .total-price {
+    margin-right: 30vw;
+    font-size: 3vw;
+  }
+}
+
+/*------------------------------MEDIAQUERY 1200px-----------------------*/
+
+@media screen and (min-width: 1200px) {
+  .pay {
+    width: 20vw;
+  }
+  .total-price {
+    margin-right: 34vw;
+    font-size: 2.5vw;
   }
 }
