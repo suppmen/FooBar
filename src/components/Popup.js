@@ -1,6 +1,5 @@
 import React from "react";
-import arrow from "./arrow.svg";
-import cart from "./beer.svg";
+import arrow from "../media/arrow.svg";
 import beerImages from "./BeerImages";
 import Star from "../icon-componenets/Star";
 
@@ -50,7 +49,7 @@ const Popup = (props) => {
         src={arrow}
         onClick={props.handleClose}
       />
-      <img src={cart} alt="Cart" className="cart" />
+
       <div className="beerTop">
         <h2 className="beerName">{props.beerDetails.name}</h2>
         <h3 className="category">{props.beerDetails.category}</h3>
