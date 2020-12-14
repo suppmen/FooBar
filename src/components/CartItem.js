@@ -33,16 +33,18 @@ export default function CartItem(props) {
         }
         return <div></div>;
       })}
-
-      <h1 className="beer-name">{props.name}</h1>
+      <div className="beer-name"> 
+      <h1>{props.name}</h1>
+      <p>{props.price} DKK</p>
+      </div>
 
       <div className="cart-add-remove-btn">
         <button className="down" onClick={handleDecrement}>
-          -
+        -
         </button>
-        {props.amount}
+        <p>{props.amount}</p>
         <button className="up" onClick={handleIncrement}>
-          +
+        +
         </button>
       </div>
     </div>
