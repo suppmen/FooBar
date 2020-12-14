@@ -21,7 +21,8 @@ body {
 
 .popup-box {
   position: fixed;
-  background: #f0d172;
+  background: $header-background-color;
+  background-image: linear-gradient($header-background-color 30%, black);
   z-index: 200;
   width: 100%;
   height: 100%;
@@ -51,7 +52,7 @@ body {
 .box {
   position: absolute;
   margin: 0 auto;
-  height: 40%;
+  height: 60%;
   bottom: 0;
   left: 0;
   right: 0;
@@ -74,14 +75,14 @@ body {
   height: 15vw;
   width: 15vw;
   margin: 5vw 0;
-  background-color: rgba(240, 209, 114, 0.17);
+  background-color: $background-opacity-color;
   border-radius: 30px;
   text-align: center;
   display: grid;
 
   p {
     align-self: center;
-    color: #f6c83f;
+    color: $header-background-color;
     font-size: 15px;
     line-height: 35px;
 
@@ -108,6 +109,7 @@ body {
 .beerTop {
   display: flex;
   flex-flow: column;
+  grid-row: 2;
 }
 .popup-img {
   grid-row: 2;
@@ -144,10 +146,10 @@ body {
   }
   .navIcon {
     fill: black;
+    margin-top: 23px;
   }
   .selected {
-    // fill: $header-background-color;
-
+    color: $header-background-color;
     .navIcon {
       fill: $header-background-color;
     }
@@ -158,9 +160,9 @@ body {
     ul {
       display: flex;
       width: 100%;
-      justify-content: space-around;
-      padding: 0;
+      justify-content: space-evenly;
       margin: 0;
+      padding: 0;
       box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.164);
     }
   }
@@ -172,28 +174,25 @@ body {
       list-style: none;
       text-transform: uppercase;
       font-weight: 400;
+      align-self: center;
       a {
         display: flex;
         flex-direction: column;
         color: $header-background-color;
         justify-content: center;
-        font-size: 0.7em;
-
-        img {
-          width: 30px;
-          align-self: center;
-          margin-top: 20px;
-          margin-bottom: -10px;
-          fill: $highlight-color;
-        }
+        align-items: center;
+        margin: 0;
+        padding: 0;
+        color: black;
       }
     }
   }
 }
 
 .togglebtn {
-  // position: fixed;
-  // bottom: 20px;
+  position: fixed;
+  bottom: 40px;
+  cursor: pointer;
   z-index: 101;
   @include btn($third-color, white);
   border: black solid 1px;
@@ -201,6 +200,5 @@ body {
   font-size: 0.8rem;
   padding: 10px 10px;
   align-self: center;
-  margin-top: 25%;
-  // left: 10px;
+  left: 50px;
 }

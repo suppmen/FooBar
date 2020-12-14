@@ -4,13 +4,12 @@ export const lightTheme = {
   text: "#363537",
   beerBtnText: "white",
   beerBtnBg: "rgba(196, 196, 196, 0.37)",
-
   toggleBorder: "#FFF",
   gradient: "linear-gradient(#39598A, #79D7ED)",
 };
 
 export const darkTheme = {
-  body: "#363537",
+  body: "#262D3B",
   text: "#FAFAFA",
   beerBtnText: "#363537",
   beerBtnBg: "white",

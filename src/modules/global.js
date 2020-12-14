@@ -20,6 +20,19 @@ export const GlobalStyles = createGlobalStyle`
   .beer-buttons{
          background: ${({ theme }) => theme.beerBtnBg};
         color: ${({ theme }) => theme.beerBtnText};
+  } 
+ .CartNotifications .logo-dark{
+            fill: ${({ theme }) => theme.text};
+
   }
-  
+
+  .popup-box{
+    color: black;
+  }
+  .back-shop,.back-arrow,.up,.down{
+                color: ${({ theme }) => theme.text};
+                                fill: ${({ theme }) => theme.text};
+
+
+  }
   `;

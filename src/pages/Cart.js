@@ -1,7 +1,7 @@
 import React from "react";
 import CartList from "../components/CartList";
 
-import arrow from "../media/long-arrow.svg";
+import ArrowIcon from "../icon-componenets/Arrow";
 
 import { Link } from "react-router-dom";
 
@@ -24,7 +24,8 @@ export default function Cart(props) {
         <div className="next-step">
           <button className="back-shop">
             <Link to="/shop">
-              <img className="back-arrow-dark" src={arrow} alt="arrow" />
+              {/* <img className="back-arrow-dark" src={arrow} alt="arrow" /> */}
+              <ArrowIcon className="back-arrow" />
               Continue Shopping
             </Link>
           </button>

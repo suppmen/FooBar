@@ -76,6 +76,18 @@ export default function App() {
     totalPrice = 45 * notificationsCount;
   }
 
+  // clearing the cartItems after finish ordering
+  function clearCart(){
+    const clearedItems =cartItems.map((item)=>{
+      item.amount = 0;
+      return item;  
+    })
+    console.log(clearedItems);
+    setCartItems(clearedItems);
+    setIsPosted(false)
+  }
+
+
   function editCartItems(name, modifier) {
     const nextItems = cartItems.map((item) => {
       if (item.name === name) {
@@ -127,7 +139,7 @@ export default function App() {
 
           <Switch>
             <Route path="/message">
-              <Message message={message} setShowNav={setShowNav} />
+              <Message message={message} setShowNav={setShowNav} clearCart={clearCart} />
             </Route>
             <Route path="/payment">
               {isPosted ? (
