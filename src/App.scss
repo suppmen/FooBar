@@ -137,6 +137,7 @@ body {
 .App {
   margin: 0;
   padding: 0;
+
   nav {
     position: fixed;
     bottom: 0;
@@ -201,4 +202,88 @@ body {
   padding: 10px 10px;
   align-self: center;
   left: 50px;
+}
+
+// Mobile breack point{
+@media only screen and (max-width: 600px) {
+  .togglebtn {
+    display: none;
+  }
+
+  .App {
+    .navIcon {
+      margin-top: 10px;
+      width: 10vw;
+    }
+  }
+  a {
+    font-size: 0.8em;
+    margin: 0;
+  }
+  nav {
+    position: fixed;
+    bottom: 0;
+    ul {
+      bottom: 0;
+
+      li {
+        p {
+          margin-bottom: 5px;
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+  .Header {
+    h1 {
+      font-size: 15vw;
+      margin-left: 5%;
+    }
+    .CartNotifications {
+      right: 5%;
+      top: 0;
+
+      .logo-dark {
+        width: 25vw;
+        margin-right: 0%;
+      }
+      h1 {
+        margin-top: 55px;
+
+        font-size: 10vw;
+      }
+    }
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media screen and (min-width: 992px) {
+  .togglebtn {
+    bottom: 14px;
+  }
+  .App {
+    .navIcon {
+      margin-top: 5px;
+      width: 35px;
+    }
+  }
+  a {
+    font-size: 0.8em;
+    margin: 0;
+  }
+  nav {
+    position: fixed;
+    bottom: 0;
+    ul {
+      bottom: 0;
+
+      li {
+        p {
+          margin-bottom: 2px;
+          margin-top: -1px;
+        }
+      }
+    }
+  }
 }

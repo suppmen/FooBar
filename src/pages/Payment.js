@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "../components/Form";
 import cart from "../media/cart.svg";
+import { Link } from "react-router-dom";
 
 export default function Payment(props) {
   props.setShowNav(false);
@@ -8,10 +9,13 @@ export default function Payment(props) {
   return (
     <section>
       <div className="top">
-        <div className="total-price-form">
-          <img className="payment-cart" src={cart} alt="cart" />
-          <h2>= {props.totalPrice} DKK</h2>
-        </div>
+        <Link to="/cart">
+          <div className="total-price-form">
+            <img className="payment-cart" src={cart} alt="cart" />
+
+            <h2>= {props.totalPrice} DKK</h2>
+          </div>
+        </Link>
         <div className="mask">
           <div className="triangle"></div>
         </div>

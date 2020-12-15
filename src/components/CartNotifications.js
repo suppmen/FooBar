@@ -9,10 +9,6 @@ export default function CartNotifications(props) {
       <Link to="/cart">
         <BeerIcon className="logo-dark"></BeerIcon>
         <h1 className="notifications">{props.notificationsCount}</h1>
-        {/* <div
-          className="logo-dark"
-          style={{ backgroundImage: `url(${logo})` }}
-        ></div> */}
       </Link>
     </div>
   );
