@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
-import { get, put } from "./modules/restdb";
+import { put } from "./modules/restdb";
 
 // import Start from "./pages/Start";
 import Home from "./pages/Home";
@@ -91,20 +91,24 @@ export default function App() {
   function displayNav(bool) {
     setShowNav(bool);
   }
-  function applyRating(data) {
-    setBeersRating(data);
-    if (cartItems.length > 1) {
-      const nextItems = cartItems.map((beer) => {
-        data.forEach((rating) => {
-          if (beer.name === rating.name) {
-            const avarage =
-              rating.ratingArray.reduce((a, b) => a + b, 0) /
-              rating.ratingArray.length;
-            beer.rating = avarage;
-          }
-        });
-        return beer;
+  function applyRating(res) {
+    setBeersRating(res);
+
+    console.log(res);
+
+    const nextItems = cartItems.map((beer) => {
+      res.forEach((rating) => {
+        if (beer.name === rating.name) {
+          const avarage =
+            rating.ratingArray.reduce((a, b) => a + b, 0) /
+            rating.ratingArray.length;
+          beer.rating = avarage;
+        }
       });
+      return beer;
+    });
+    console.log(nextItems);
+    if (cartItems.length > 1) {
       setCartItems(nextItems);
     }
   }
@@ -114,9 +118,8 @@ export default function App() {
     setIsPosted(true);
   };
   useEffect(() => {
-    getData(setData, setCartItems);
+    getData(setData, setCartItems, applyRating);
     getBeers(setBeers);
-    get(applyRating);
   }, []);
 
   return (

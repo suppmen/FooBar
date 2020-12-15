@@ -1,5 +1,7 @@
+// import { get } from "react-hook-form";
+import { get } from "./restdb";
 const Url = "https://foo-bar-managers.herokuapp.com/";
-export function getData(callback1, callback2) {
+export function getData(callback1, callback2, callback3) {
   fetch(Url, {
     method: "get",
     headers: {
@@ -26,7 +28,8 @@ export function getData(callback1, callback2) {
       });
       console.log(updatedData, "x");
       callback2(updatedData);
-    });
+    })
+    .then(get(callback3));
 }
 
 export function postOrder(payload, callback) {
