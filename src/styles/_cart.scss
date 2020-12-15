@@ -2,41 +2,32 @@
 
 .cart-order {
   font-size: 40px;
-  margin: {
-    top: 10vw;
-    bottom: 0;
-    left: 6vw;
-  }
+  margin-top: 10vw;
+  margin-bottom: 0;
+  margin-left: 6vw;
 }
 .cart-total {
   font-size: 30px;
   font-weight: 300;
   color: gray;
-  margin: {
-    top: 0;
-    bottom: 14vw;
-    left: 8vw;
-  }
+  margin-top: 0;
+  margin-bottom: 14vw;
+  margin-left: 8vw;
 }
 
 .CartList {
-  margin: {
-    top: 0;
-    bottom: 14vw;
-  }
+  margin-top: 0;
+  margin-bottom: 14vw;
 }
 
 .CartItem {
   display: grid;
   grid-template-columns: 1fr 2fr 4fr 2fr;
-  margin: {
-    top: 6vw;
-    bottom: 6vw;
-  }
-  padding: {
-    left: 4vw;
-    right: 4vw;
-  }
+  margin-top: 6vw;
+  margin-bottom: 6vw;
+  padding-left: 4vw;
+  padding-right: 4vw;
+
   .bin {
     width: 75%;
     align-self: center;
@@ -72,9 +63,7 @@
     grid-row: 1;
     display: flex;
     align-items: center;
-    margin: {
-      left: 4vw;
-    }
+    margin-left: 4vw;
 
     button {
       border: none;
@@ -83,10 +72,8 @@
     }
     p {
       font-size: 1.3rem;
-      margin: {
-        left: 2vw;
-        right: 2vw;
-      }
+      margin-left: 2vw;
+      margin-right: 2vw;
     }
   }
 }
@@ -96,10 +83,9 @@
   justify-content: center;
 
   .link-back {
-    margin: {
-      top: 6vw;
-      bottom: 50vw;
-    }
+    margin-top: 6vw;
+    margin-bottom: 50vw;
+
     text-align: center;
     a {
       display: flex;
@@ -128,10 +114,8 @@
   margin: 0;
   cursor: pointer;
   width: 65vw;
-  padding: {
-    top: 1.5;
-    bottom: 1.5vw;
-  }
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
 }
 
 .noBeers {
@@ -142,10 +126,8 @@
   h3 {
     font-size: 40px;
     font-weight: 100;
-    padding: {
-      left: 1vw;
-      right: 1vw;
-    }
+    padding-left: 1vw;
+    padding-right: 1vw;
   }
 }
 
@@ -166,10 +148,8 @@
 
 @media screen and (min-width: 450px) {
   .noBeers h3 {
-    padding: {
-      left: 2vw;
-      right: 2vw;
-    }
+    padding-left: 2vw;
+    padding-right: 2vw;
   }
   .CartItem .cart-img {
     width: 80%;
@@ -188,10 +168,8 @@
 
 @media screen and (min-width: 500px) {
   .noBeers h3 {
-    padding: {
-      left: 14vw;
-      right: 14vw;
-    }
+    padding-left: 14vw;
+    padding-right: 14vw;
   }
 
   .CartItem {
@@ -210,15 +188,11 @@
 
 @media screen and (min-width: 650px) {
   .cart-total {
-    margin: {
-      bottom: 6vw;
-    }
+    margin-bottom: 6vw;
   }
   .noBeers h3 {
-    padding: {
-      left: 24vw;
-      right: 24vw;
-    }
+    padding-left: 24vw;
+    padding-right: 24vw;
   }
 
   .CartItem {
@@ -240,26 +214,21 @@
 
   .pay {
     width: 38vw;
-    padding: {
-      top: 1vw;
-      bottom: 1vw;
-    }
+    padding-top: 1vw;
+    padding-bottom: 1vw;
   }
 
   .next-step {
     display: flex;
     flex-direction: row-reverse;
-    margin: {
-      top: 0;
-      bottom: 30vw;
-    }
+    margin-top: 0;
+    margin-bottom: 30vw;
+
     .link-back {
       align-self: center;
-      margin: {
-        right: 3vw;
-        top: 0;
-        bottom: 0;
-      }
+      margin-right: 3vw;
+      margin-top: 0;
+      margin-bottom: 0;
     }
   }
   .total-price {
@@ -276,16 +245,13 @@
   }
   .cart-order,
   .cart-total {
-    margin: {
-      left: 12vw;
-    }
+    margin-left: 12vw;
   }
 
   .CartItem {
-    padding: {
-      left: 6vw;
-      right: 6vw;
-    }
+    padding-left: 6vw;
+    padding-right: 6vw;
+
     h1 {
       font-size: 1.8rem;
     }

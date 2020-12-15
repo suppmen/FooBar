@@ -8,7 +8,7 @@ export default function Payment(props) {
   return (
     <section>
       <div className="top">
-        <div className="total-price">
+        <div className="total-price-form">
           <img className="payment-cart" src={cart} alt="cart" />
           <h2>= {props.totalPrice} DKK</h2>
         </div>
