@@ -27,7 +27,7 @@ $border-properties: 11px, transparent, 1px;
 
 .top {
   background-color: $primary-color;
-  .total-price {
+  .total-price-form {
     color: #f7b71e;
     text-align: center;
     display: flex;
@@ -75,6 +75,10 @@ $border-properties: 11px, transparent, 1px;
       justify-content: center;
       p {
         margin: 0;
+      }
+      .back-arrow-dark {
+        transform: scaleX(-1);
+        height: 20px;
       }
     }
   }
@@ -183,7 +187,7 @@ form {
 
     &:hover {
       background-color: #ffffff;
-      border: 2px solid #f0d172;
+      border: 1px solid #f0d172;
       color: #f0d172;
       transition: 0.2s;
     }
@@ -193,6 +197,11 @@ form {
 /*------------------------------MEDIAQUERY 500px-----------------------*/
 
 @media screen and (min-width: 500px) {
+  .top {
+    .total-price-form {
+      font-size: 4.5vw;
+    }
+  }
   .Form {
     max-width: 300px;
     margin-top: 2vh;
@@ -220,8 +229,8 @@ form {
 
 @media screen and (min-width: 650px) {
   .top {
-    .total-price {
-      padding-top: 12vw;
+    .total-price-form {
+      padding-top: 8vw;
     }
   }
   .Form {
@@ -236,6 +245,12 @@ form {
 /*------------------------------MEDIAQUERY 900px-----------------------*/
 
 @media screen and (min-width: 900px) {
+  .top {
+    .total-price-form {
+      font-size: 3.5vw;
+      padding-top: 8vw;
+    }
+  }
   .Form {
     form {
       .expirationDate .small-div {
