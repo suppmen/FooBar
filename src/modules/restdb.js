@@ -1,7 +1,7 @@
 const endpoint = "https://danieldb-2683.restdb.io/rest/rating";
 const key = "5f959ef84b77c1637d147d90";
 
-export function get(callback) {
+export function getRatingArray(callback) {
   fetch(`${endpoint}`, {
     method: "get",
     headers: {

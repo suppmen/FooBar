@@ -6,13 +6,7 @@ export default function Shop(props) {
   props.setShowNav(true);
   return (
     <div className="Shop">
-      <Header
-        beers={props.beers}
-        data={props.data}
-        cartItems={props.cartItems}
-        editCartItems={props.editCartItems}
-        notificationsCount={props.notificationsCount}
-      />
+      <Header notificationsCount={props.notificationsCount} />
       <section className="beerListCenter">
         {
           <BeerList
@@ -20,7 +14,6 @@ export default function Shop(props) {
             updateRating={props.updateRating}
             stars={props.stars}
             beers={props.beers}
-            data={props.data}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}
           />

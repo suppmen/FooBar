@@ -1,6 +1,5 @@
 import React from "react";
 import BeerIcon from "../icon-componenets/BeerIcon";
-import Cart from "../pages/Cart";
 import { Link } from "react-router-dom";
 
 export default function CartNotifications(props) {
