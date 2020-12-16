@@ -16,10 +16,8 @@ export default function BeerList(props) {
                 stars={props.stars}
                 key={index}
                 item={item}
-                data={props.data}
                 beers={props.beers}
                 editCartItems={props.editCartItems}
-                ratingToggle={props.ratingToggle}
               />
             );
           })}

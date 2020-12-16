@@ -25,7 +25,6 @@ export default function App() {
   const [message, setMessage] = useState("");
 
   const [beers, setBeers] = useState([]);
-  const [data, setData] = useState({});
   const [cartItems, setCartItems] = useState([]);
 
   // Rating states
@@ -49,11 +48,11 @@ export default function App() {
       put(beerToUpdate[0]._id, newRatingList, showRating);
     }
   }
-  function showRating(data) {
-    const nextArray = data.ratingArray;
+  function showRating(res) {
+    const nextArray = res.ratingArray;
     const avarage = nextArray.reduce((a, b) => a + b, 0) / nextArray.length;
     const nextCartItems = cartItems.map((item) => {
-      if (item.name === data.name) {
+      if (item.name === res.name) {
         item.rating = avarage;
       }
       return item;
@@ -77,16 +76,15 @@ export default function App() {
   }
 
   // clearing the cartItems after finish ordering
-  function clearCart(){
-    const clearedItems =cartItems.map((item)=>{
+  function clearCart() {
+    const clearedItems = cartItems.map((item) => {
       item.amount = 0;
-      return item;  
-    })
+      return item;
+    });
     console.log(clearedItems);
     setCartItems(clearedItems);
-    setIsPosted(false)
+    setIsPosted(false);
   }
-
 
   function editCartItems(name, modifier) {
     const nextItems = cartItems.map((item) => {
@@ -125,12 +123,12 @@ export default function App() {
     }
   }
 
-  const sendMessage = (data) => {
-    setMessage(data);
+  const sendMessage = (res) => {
+    setMessage(res);
     setIsPosted(true);
   };
   useEffect(() => {
-    getData(setData, setCartItems, applyRating);
+    getData(setCartItems, applyRating);
     getBeers(setBeers);
   }, []);
 
@@ -142,7 +140,11 @@ export default function App() {
 
           <Switch>
             <Route path="/message">
-              <Message message={message} setShowNav={setShowNav} clearCart={clearCart} />
+              <Message
+                message={message}
+                setShowNav={setShowNav}
+                clearCart={clearCart}
+              />
             </Route>
             <Route path="/payment">
               {isPosted ? (
@@ -151,7 +153,6 @@ export default function App() {
                 <Payment
                   totalPrice={totalPrice}
                   setShowNav={setShowNav}
-                  notificationsCount={notificationsCount}
                   sendPostRequest={sendPostRequest}
                   cartItems={cartItems}
                 />
@@ -163,7 +164,6 @@ export default function App() {
                 stars={stars}
                 setShowNav={setShowNav}
                 notificationsCount={notificationsCount}
-                data={data}
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
@@ -173,7 +173,6 @@ export default function App() {
               <Cart
                 displayNav={displayNav}
                 notificationsCount={notificationsCount}
-                data={data}
                 beers={beers}
                 cartItems={cartItems}
                 editCartItems={editCartItems}
@@ -182,13 +181,7 @@ export default function App() {
               />
             </Route>
             <Route path="/">
-              <Home
-                displayNav={displayNav}
-                data={data}
-                beers={beers}
-                cartItems={cartItems}
-                editCartItems={editCartItems}
-              />
+              <Home displayNav={displayNav} />
             </Route>
           </Switch>
         </div>

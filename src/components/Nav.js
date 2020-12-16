@@ -18,7 +18,7 @@ import { GlobalStyles } from "../modules/global";
 import Toggle from "../components/Toggle";
 
 function Nav() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
 
   // The function that toggles between themes
   const toggleTheme = () => {

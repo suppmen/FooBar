@@ -1,7 +1,6 @@
-// import { get } from "react-hook-form";
-import { get } from "./restdb";
+import { getRatingArray } from "./restdb";
 const Url = "https://foo-bar-managers.herokuapp.com/";
-export function getData(callback1, callback2, callback3) {
+export function getData(callback1, callback2) {
   fetch(Url, {
     method: "get",
     headers: {
@@ -13,7 +12,6 @@ export function getData(callback1, callback2, callback3) {
       else console.log("GET failed!");
     })
     .then((data) => {
-      callback1(data);
       const updatedData = [];
 
       data.taps.forEach((item) => {
@@ -27,9 +25,9 @@ export function getData(callback1, callback2, callback3) {
         }
       });
       console.log(updatedData, "x");
-      callback2(updatedData);
+      callback1(updatedData);
     })
-    .then(get(callback3));
+    .then(getRatingArray(callback2));
 }
 
 export function postOrder(payload, callback) {
