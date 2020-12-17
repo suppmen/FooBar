@@ -51,6 +51,8 @@ const Popup = (props) => {
       <div className="beerTop">
         <h2 className="beerName">{props.beerDetails.name}</h2>
         <h3 className="category">{props.beerDetails.category}</h3>
+        <h3 className="price">Price: 45,-</h3>
+        
       </div>
       {beerImages.map((beerImage, index) => {
         if (props.beerDetails.name === beerImage.name) {
