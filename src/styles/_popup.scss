@@ -197,6 +197,9 @@ $header-margin-left-mobile: 14vw;
   .popup-box .beerName {
     font-size: 38px;
   }
+  .box {
+    padding: 2vw 14vw;
+  }
 }
 
 /*------------------------------MEDIAQUERY 900px-----------------------*/
@@ -228,6 +231,9 @@ $header-margin-left-mobile: 14vw;
     height: 13vw;
     margin: 5vw 0;
   }
+  .box {
+    padding-right: 20vw;
+  }
 }
 
 /*------------------------------MEDIAQUERY 1360px-----------------------*/
@@ -236,6 +242,13 @@ $header-margin-left-mobile: 14vw;
   .popup-box .beerName {
     margin-top: 0;
   }
+  .box {
+    padding-right: 28vw;
+  }
+  .small-box {
+    width: 10vw;
+    height: 10vw;
+  }
 }
 
 /*------------------------------MEDIAQUERY 1500px-----------------------*/
@@ -243,5 +256,8 @@ $header-margin-left-mobile: 14vw;
 @media screen and (min-width: 1500px) {
   .popup-box .beerName {
     margin-top: 3vw;
+  }
+  .popup-box .popup-img {
+    margin-top: 3vh;
   }
 }
