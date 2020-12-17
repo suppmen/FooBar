@@ -1,11 +1,10 @@
 import React from "react";
 import arrow from "../media/long-arrow.svg";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 
-//from https://www.youtube.com/watch?v=fTCTtCv8iN8
-
+// to mask the credit card number, from https://www.youtube.com/watch?v=fTCTtCv8iN8
 const normalizeCard = (value) => {
   return (
     value
@@ -21,7 +20,6 @@ const normalizeCvv = (value) => {
 const normalizeMonth = (value) => {
   return value.substr(0, 2);
 };
-
 const normalizeYear = (value) => {
   return value.substr(0, 2);
 };
