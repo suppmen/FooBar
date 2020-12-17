@@ -72,9 +72,8 @@ export default function App() {
     });
     setCartItems(nextCartItems);
   }
-
+  // Displaying live rating in the details popup
   function applayRating() {
-    console.log(cartItems, beersRating);
     const nextCartItems = cartItems.map((beer) => {
       beersRating.forEach((rating) => {
         if (beer.name === rating.name) {

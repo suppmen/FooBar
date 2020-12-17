@@ -220,6 +220,12 @@ body {
   align-self: center;
   left: 50px;
 }
+.back-arrow {
+  margin-right: 10px;
+}
+.credit {
+  margin-bottom: 200px;
+}
 
 // Mobile breack point
 @media only screen and (max-width: 600px) {
@@ -295,6 +301,12 @@ body {
 @media screen and (min-width: 992px) and(max-height: 900px) {
   .togglebtn {
     bottom: 14px;
+  }
+  .credit {
+    margin-bottom: 200px;
+  }
+  .noBeers {
+    margin-bottom: 200px;
   }
   .App {
     .navIcon {
