@@ -37,6 +37,7 @@ export default function Beer(props) {
                 className="beer-tap-img"
                 alt="beerImage"
                 src={process.env.PUBLIC_URL + beerImage.linkImg}
+                onClick={togglePopup} 
               />
             );
           }

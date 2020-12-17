@@ -1,4 +1,6 @@
 /* Popup style */
+$header-margin-left-mobile: 14vw;
+
 .popup-box {
   position: fixed;
   background: $header-background-color;
@@ -14,20 +16,22 @@
   grid-template-rows: 0.7fr 2fr;
   .beerName {
     color: white;
-    font-size: 2rem;
+    font-size: 1.7rem;
     float: left;
-    // margin: 0;
-    margin-left: 14vw;
+    margin-left: $header-margin-left-mobile;
     margin-top: -22vw;
     margin-bottom: 3vw;
   }
   .category {
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     float: left;
     margin: 0;
-    margin-left: 14vw;
-    // line-height: 70px;
+    margin-left: $header-margin-left-mobile;
+  }
+  .price {
+    margin-left: $header-margin-left-mobile;
+    color: white;
   }
 }
 
@@ -72,7 +76,7 @@
   transform: scaleX(-1);
   margin-top: 6vw;
   float: left;
-  margin-left: 10vw;
+  margin-left: $header-margin-left-mobile;
 }
 .cart {
   height: 50px;
@@ -111,15 +115,20 @@
   padding: 5px;
 }
 
+.beer-tap-img {
+  cursor: pointer;
+}
+
 /*------------------------------MEDIAQUERY 500px-----------------------*/
 
 @media screen and (min-width: 500px) {
   .arrow {
     height: 40px;
+    margin-top: 16vw;
   }
   .popup-box {
     .beerName {
-      margin-top: -20vw;
+      margin-top: -12vw;
     }
     .popup-img {
       margin-top: -4vh;
@@ -143,14 +152,18 @@
 @media screen and (min-width: 600px) {
   .arrow {
     height: 50px;
+    margin-top: 8vw;
   }
   .popup-box {
     .beerName {
-      font-size: 44px;
+      font-size: 32px;
       margin-top: -12vw;
     }
     .category {
       font-size: 30px;
+    }
+    .price {
+      font-size: 20px;
     }
   }
 
@@ -173,6 +186,17 @@
     width: 30%;
     height: 14vw;
   }
+  .popup-box .price {
+    font-size: 22px;
+  }
+}
+
+/*------------------------------MEDIAQUERY 800px-----------------------*/
+
+@media screen and (min-width: 800px) {
+  .popup-box .beerName {
+    font-size: 38px;
+  }
 }
 
 /*------------------------------MEDIAQUERY 900px-----------------------*/
@@ -185,11 +209,39 @@
   }
 
   .arrow {
-    margin-left: 4vw;
+    margin-top: 4vw;
   }
-  .popup-box {
-    .beerName {
-      font-size: 60px;
-    }
+}
+
+/*------------------------------MEDIAQUERY 1000px-----------------------*/
+
+@media screen and (min-width: 1000px) {
+  .popup-box .popup-img {
+    width: 22%;
+    height: 12vw;
+  }
+  .popup-box .beerName {
+    margin-top: -8vw;
+  }
+  .small-box {
+    width: 13vw;
+    height: 13vw;
+    margin: 5vw 0;
+  }
+}
+
+/*------------------------------MEDIAQUERY 1360px-----------------------*/
+
+@media screen and (min-width: 1360px) {
+  .popup-box .beerName {
+    margin-top: 0;
+  }
+}
+
+/*------------------------------MEDIAQUERY 1500px-----------------------*/
+
+@media screen and (min-width: 1500px) {
+  .popup-box .beerName {
+    margin-top: 3vw;
   }
 }
