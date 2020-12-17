@@ -24,7 +24,6 @@ export function getData(callback1, callback2) {
           });
         }
       });
-      console.log(updatedData, "x");
       callback1(updatedData);
     })
     .then(getRatingArray(callback2));

@@ -21,7 +21,6 @@ export default function Cart(props) {
         </div>
       );
     } else {
-      console.log("we have an order");
       return (
         <div className="next-step">
           <Link to="/payment">

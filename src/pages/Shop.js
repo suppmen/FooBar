@@ -23,7 +23,7 @@ export default function Shop(props) {
         }
       </section>
       <div className="credit">
-        Icons made by{" "}
+        Menu icons made by{" "}
         <a
           href="https://www.flaticon.com/authors/kiranshastry"
           title="Kiranshastry"
