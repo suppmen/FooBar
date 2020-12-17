@@ -2,10 +2,12 @@
 
 Clone the repository
 
-## Now you have the clode localy on your computer
+## `git clone https://github.com/suppmen/FooBar.git`
+
+### Now you have the code localy on your computer
 
 In the project directory, you can run:
 
-### `npm install`
+#### `npm install`
 
 here you go, you have the codes running on your machine.
