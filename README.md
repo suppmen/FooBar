@@ -1,13 +1,17 @@
-# To Start
+# This is a react project
+
+## To Start:
 
 Clone the repository
 
-## `git clone https://github.com/suppmen/FooBar.git`
+### `git clone https://github.com/suppmen/FooBar.git`
 
-### Now you have the code localy on your computer
+In the project directory run:
 
-In the project directory, you can run:
+### `npm Install`
 
-#### `npm install`
+To fire the live server run:
 
-here you go, you have the codes running on your machine.
+### `npm start`
+
+Now you can see the content of the project in your browser.
