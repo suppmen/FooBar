@@ -11,7 +11,6 @@ a {
   background-color: none;
   text-decoration: none;
 }
-/* Popup style */
 
 body {
   margin: 0;
@@ -19,6 +18,7 @@ body {
   font: 100% $font-stack;
 }
 
+/* Popup style */
 .popup-box {
   position: fixed;
   background: $header-background-color;
@@ -56,7 +56,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  // margin-top: calc(100vh - 85vh - 20px);
   background: #fff;
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
@@ -191,6 +190,11 @@ body {
   }
 }
 
+.credit {
+  text-align: center;
+  width: 100%;
+}
+
 .togglebtn {
   position: fixed;
   bottom: 40px;
@@ -205,7 +209,7 @@ body {
   left: 50px;
 }
 
-// Mobile breack point{
+// Mobile breack point
 @media only screen and (max-width: 600px) {
   .togglebtn {
     display: none;
@@ -245,13 +249,30 @@ body {
       top: 0;
 
       .logo-dark {
-        width: 25vw;
+        width: 22vw;
         margin-right: 0%;
+        margin-top: -5px;
       }
       h1 {
-        margin-top: 55px;
+        margin-top: 48px;
 
         font-size: 10vw;
+      }
+    }
+  }
+}
+// Mobile breack point horizontal
+@media only screen and (max-width: 900px) and (min-width: 550px) {
+  .togglebtn {
+    display: none;
+  }
+  .Header {
+    .CartNotifications {
+      .logo-dark {
+        margin-top: 15px;
+      }
+      h1 {
+        margin-top: 65px;
       }
     }
   }
@@ -259,7 +280,7 @@ body {
 
 /* Large devices (laptops/desktops, 992px and up) */
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 992px) and(max-height: 900px) {
   .togglebtn {
     bottom: 14px;
   }

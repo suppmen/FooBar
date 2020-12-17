@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CartList from "../components/CartList";
 
 import arrow from "../media/long-arrow.svg";
@@ -6,7 +6,9 @@ import arrow from "../media/long-arrow.svg";
 import { Link } from "react-router-dom";
 
 export default function Cart(props) {
-  props.displayNav(true);
+  useEffect(() => {
+    props.displayNav(true);
+  });
 
   function Nobeers() {
     if (props.notificationsCount === 0) {
@@ -26,13 +28,11 @@ export default function Cart(props) {
             <button className="pay">Pay</button>
           </Link>
 
-
           <div className="link-back">
-          <Link to="/shop" className="continue">
-            <img className="back-arrow-dark" src={arrow} alt="arrow" />
-            <p>Continue Shopping</p>  
-          </Link>
-
+            <Link to="/shop" className="continue">
+              <img className="back-arrow-dark" src={arrow} alt="arrow" />
+              <p>Continue Shopping</p>
+            </Link>
           </div>
         </div>
       );
@@ -64,8 +64,9 @@ export default function Cart(props) {
         editCartItems={props.editCartItems}
         notificationsCount={props.notificationsCount}
       />
-      <h3 className={props.totalPrice>0?"total-price": "hide"}>
-        Total: {props.totalPrice} DKK</h3>
+      <h3 className={props.totalPrice > 0 ? "total-price" : "hide"}>
+        Total: {props.totalPrice} DKK
+      </h3>
       <Nobeers />
       <div></div>
     </section>

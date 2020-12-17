@@ -98,3 +98,11 @@
     height: 100%;
   }
 }
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media screen and (min-width: 992px) and(max-height: 900px) {
+  .Home {
+    height: 100vh;
+  }
+}

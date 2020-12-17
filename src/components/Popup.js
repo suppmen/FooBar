@@ -4,8 +4,6 @@ import beerImages from "./BeerImages";
 import Star from "../icon-componenets/Star";
 
 const Popup = (props) => {
-  // props.setShowNav(false);
-
   function rateBeer(event) {
     let rate = event.currentTarget.getAttribute("data-rate");
     let rateArray = [parseInt(rate)];
@@ -65,7 +63,7 @@ const Popup = (props) => {
             />
           );
         }
-        return <div></div>;
+        return <div key={index}></div>;
       })}
       <div className="box">
         <h1>Details</h1>
@@ -77,7 +75,7 @@ const Popup = (props) => {
             props.stars.map((star, i) => {
               return (
                 <Star
-                  key={star.number}
+                  key={i}
                   className={
                     star.isMarked ? "star-yellow ratingImg" : "star ratingImg"
                   }

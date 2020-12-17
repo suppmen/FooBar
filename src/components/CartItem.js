@@ -31,20 +31,20 @@ export default function CartItem(props) {
             />
           );
         }
-        return <div></div>;
+        return <div key={index}></div>;
       })}
-      <div className="beer-name"> 
-      <h1>{props.name}</h1>
-      <p>{props.price} DKK</p>
+      <div className="beer-name">
+        <h1>{props.name}</h1>
+        <p>{props.price} DKK</p>
       </div>
 
       <div className="cart-add-remove-btn">
         <button className="down" onClick={handleDecrement}>
-        -
+          -
         </button>
         <p>{props.amount}</p>
         <button className="up" onClick={handleIncrement}>
-        +
+          +
         </button>
       </div>
     </div>

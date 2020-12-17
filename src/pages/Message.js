@@ -1,16 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 export default function Message(props) {
-  props.setShowNav(false);
+  useEffect(() => {
+    props.setShowNav(false);
+  });
 
-
-
-  function clearCart(){
+  function clearCart() {
     props.clearCart();
   }
-
-
 
   return (
     <div className="Message">
@@ -22,16 +20,11 @@ export default function Message(props) {
         <h1>Your order number is</h1>
         <span>#{props.message.id}</span>
 
-    
-
         <Link to="/">
-          <button onClick={clearCart} className="finish-btn">Finish</button>
+          <button onClick={clearCart} className="finish-btn">
+            Finish
+          </button>
         </Link>
-        
-          {/* <button className="finish-btn">
-          <a onClick={() => {window.location.href="https://suppmen.github.io/FooBar/"}}>Finish</a>
-          </button> */}
-        
       </article>
     </div>
   );

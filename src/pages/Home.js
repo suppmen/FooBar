@@ -1,10 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Link } from "react-router-dom";
 
 import logo from "../media/beer-mug.svg";
 
 export default function Home(props) {
-  props.displayNav(false);
+  useEffect(() => {
+    props.displayNav(false);
+  });
   return (
     <div className="Home">
       <article className="home-wrapper">
