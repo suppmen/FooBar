@@ -14,24 +14,7 @@ export function getRatingArray(callback) {
     .then((data) => callback(data));
 }
 
-export function post(payload) {
-  fetch(`${endpoint}`, {
-    method: "post",
-    headers: {
-      "Content-Type": "application/json; charset=utf-8",
-      "x-apikey": key,
-      "cache-control": "no-cache",
-    },
-    body: JSON.stringify(payload),
-  })
-    .then((e) => e.json())
-    .then((data) => {
-      console.log(data);
-    });
-}
-
 export function put(id, newRatingList, callback) {
-  console.log(id, newRatingList, "in put");
   let data = {
     ratingArray: newRatingList,
   };
@@ -46,8 +29,8 @@ export function put(id, newRatingList, callback) {
     },
     body: postData,
   })
-    .then((e) => e.json())
-    .then((t) => {
-      callback(t);
+    .then((res) => res.json())
+    .then((ratingArray) => {
+      callback(ratingArray);
     });
 }

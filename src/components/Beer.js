@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Popup from "./Popup";
 import beerImages from "./BeerImages";
-// import  rating_star  from "../media/rating_star.svg";
 
 export default function Beer(props) {
   const filteredBeers = props.beers.filter(

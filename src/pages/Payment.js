@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Form from "../components/Form";
 import cart from "../media/cart.svg";
 import { Link } from "react-router-dom";
 
 export default function Payment(props) {
-  props.setShowNav(false);
+  useEffect(() => {
+    props.setShowNav(false);
+  });
 
   return (
     <section>

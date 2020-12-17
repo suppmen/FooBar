@@ -2,9 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getData, getBeers, postOrder } from "./modules/Rest";
 import { put } from "./modules/restdb";
 
-// import Start from "./pages/Start";
 import Home from "./pages/Home";
-
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Payment from "./pages/Payment";
@@ -19,16 +17,27 @@ import {
 } from "react-router-dom";
 
 export default function App() {
+  // Show or hide navigation bar state
   const [showNav, setShowNav] = useState(false);
+
+  // order post state to clear cart
   const [isPosted, setIsPosted] = useState(false);
 
+  // Message state after posting an order showing the order id
   const [message, setMessage] = useState("");
 
+  // Beers state to show the beer details page
   const [beers, setBeers] = useState([]);
+
+  // Items state to display beer list and add or remove from cart
   const [cartItems, setCartItems] = useState([]);
 
   // Rating states
+
+  // Rating beers array state from restdb database to show the live rating
   const [beersRating, setBeersRating] = useState([]);
+
+  // Stars state to show the rating stars and thier value and to change the rating
   const [stars, setStars] = useState([
     { isMarked: false, number: 1 },
     { isMarked: false, number: 2 },
@@ -37,7 +46,7 @@ export default function App() {
     { isMarked: false, number: 5 },
   ]);
 
-  // Rating
+  // Updating rating after clicking one of the stars buttons
   function updateRating(beerName, newRating, nextStars) {
     if (beersRating.length > 1) {
       setStars(nextStars);
@@ -45,6 +54,7 @@ export default function App() {
       const beerToUpdate = beersRating.filter((item) => item.name === beerName);
       const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
 
+      // Sending the new chosen rating to the live data in restdbdatabae
       put(beerToUpdate[0]._id, newRatingList, showRating);
     }
   }
@@ -101,34 +111,13 @@ export default function App() {
   function displayNav(bool) {
     setShowNav(bool);
   }
-  function applyRating(res) {
-    setBeersRating(res);
-
-    console.log(res);
-
-    const nextItems = cartItems.map((beer) => {
-      res.forEach((rating) => {
-        if (beer.name === rating.name) {
-          const avarage =
-            rating.ratingArray.reduce((a, b) => a + b, 0) /
-            rating.ratingArray.length;
-          beer.rating = avarage;
-        }
-      });
-      return beer;
-    });
-    console.log(nextItems);
-    if (cartItems.length > 1) {
-      setCartItems(nextItems);
-    }
-  }
 
   const sendMessage = (res) => {
     setMessage(res);
     setIsPosted(true);
   };
   useEffect(() => {
-    getData(setCartItems, applyRating);
+    getData(setCartItems, setBeersRating);
     getBeers(setBeers);
   }, []);
 

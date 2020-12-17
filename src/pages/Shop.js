@@ -1,9 +1,12 @@
-// import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import BeerList from "../components/BeerList";
 import Header from "../components/Header";
 
 export default function Shop(props) {
-  props.setShowNav(true);
+  useEffect(() => {
+    props.setShowNav(true);
+  });
+
   return (
     <div className="Shop">
       <Header notificationsCount={props.notificationsCount} />
@@ -19,6 +22,29 @@ export default function Shop(props) {
           />
         }
       </section>
+      <div className="credit">
+        Icons made by{" "}
+        <a
+          href="https://www.flaticon.com/authors/kiranshastry"
+          title="Kiranshastry"
+        >
+          Kiranshastry
+        </a>{" "}
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+          Freepik
+        </a>{" "}
+        and{" "}
+        <a
+          href="https://www.flaticon.com/authors/gregor-cresnar"
+          title="Gregor Cresnar"
+        >
+          Gregor Cresnar
+        </a>{" "}
+        from{" "}
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </div>
     </div>
   );
 }
