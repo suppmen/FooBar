@@ -13,9 +13,9 @@ export default function Shop(props) {
       <section className="beerListCenter">
         {
           <BeerList
+            applayRating={props.applayRating}
             setShowNav={props.setShowNav}
             updateRating={props.updateRating}
-            stars={props.stars}
             beers={props.beers}
             cartItems={props.cartItems}
             editCartItems={props.editCartItems}

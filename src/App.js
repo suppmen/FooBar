@@ -37,35 +37,54 @@ export default function App() {
   // Rating beers array state from restdb database to show the live rating
   const [beersRating, setBeersRating] = useState([]);
 
-  // Stars state to show the rating stars and thier value and to change the rating
-  const [stars, setStars] = useState([
-    { isMarked: false, number: 1 },
-    { isMarked: false, number: 2 },
-    { isMarked: false, number: 3 },
-    { isMarked: false, number: 4 },
-    { isMarked: false, number: 5 },
-  ]);
-
   // Updating rating after clicking one of the stars buttons
-  function updateRating(beerName, newRating, nextStars) {
-    if (beersRating.length > 1) {
-      setStars(nextStars);
+  function updateRating(beerName, newRating) {
+    const beerToUpdate = beersRating.filter((item) => item.name === beerName);
+    const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
 
-      const beerToUpdate = beersRating.filter((item) => item.name === beerName);
-      const newRatingList = beerToUpdate[0].ratingArray.concat(newRating);
-
-      // Sending the new chosen rating to the live data in restdbdatabae
-      put(beerToUpdate[0]._id, newRatingList, showRating);
-    }
+    // Sending the new chosen rating to the live data in restdbdatabae
+    put(beerToUpdate[0]._id, newRatingList, showRating);
   }
   function showRating(res) {
-    const nextArray = res.ratingArray;
-    const avarage = nextArray.reduce((a, b) => a + b, 0) / nextArray.length;
+    console.log(res, beersRating);
+    // The new rating array of the updated beer
+
+    const nextRatingArray = res.ratingArray;
+
+    // Updating the beers rating array state
+    const nextBerrsReating = beersRating.map((beerRating) => {
+      if (beerRating.name === res.name) {
+        beerRating.ratingArray = nextRatingArray;
+      }
+      return beerRating;
+    });
+    setBeersRating(nextBerrsReating);
+
+    // Updating the cart items to show the correct rating
+
+    const avarage =
+      nextRatingArray.reduce((a, b) => a + b, 0) / nextRatingArray.length;
     const nextCartItems = cartItems.map((item) => {
       if (item.name === res.name) {
         item.rating = avarage;
       }
       return item;
+    });
+    setCartItems(nextCartItems);
+  }
+
+  function applayRating() {
+    console.log(cartItems, beersRating);
+    const nextCartItems = cartItems.map((beer) => {
+      beersRating.forEach((rating) => {
+        if (beer.name === rating.name) {
+          const avarage =
+            rating.ratingArray.reduce((a, b) => a + b, 0) /
+            rating.ratingArray.length;
+          beer.rating = avarage;
+        }
+      });
+      return beer;
     });
     setCartItems(nextCartItems);
   }
@@ -149,8 +168,8 @@ export default function App() {
             </Route>
             <Route path="/shop">
               <Shop
+                applayRating={applayRating}
                 updateRating={updateRating}
-                stars={stars}
                 setShowNav={setShowNav}
                 notificationsCount={notificationsCount}
                 beers={beers}

@@ -1,21 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import arrow from "../media/arrow.svg";
 import beerImages from "./BeerImages";
 import Star from "../icon-componenets/Star";
 
 const Popup = (props) => {
+  // Stars state to show the rating stars and thier value and to change the rating
+
+  const [stars, setStars] = useState([
+    { isMarked: false, number: 1 },
+    { isMarked: false, number: 2 },
+    { isMarked: false, number: 3 },
+    { isMarked: false, number: 4 },
+    { isMarked: false, number: 5 },
+  ]);
   function rateBeer(event) {
+    // Figuring out the rate
     let rate = event.currentTarget.getAttribute("data-rate");
     let rateArray = [parseInt(rate)];
-    const nextStars = props.stars.map((star) => {
+
+    const nextStars = stars.map((star) => {
       if (star.number <= rate) {
         return { number: star.number, isMarked: true };
       } else {
         return { number: star.number, isMarked: false };
       }
     });
-
-    props.updateRating(props.beerDetails.name, rateArray, nextStars);
+    setStars(nextStars);
+    props.updateRating(props.beerDetails.name, rateArray);
   }
   // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
 
@@ -71,8 +82,8 @@ const Popup = (props) => {
         <p>{props.beerDetails.description.aroma}</p>
         <p>{props.beerDetails.description.flavor}</p>
         <div className="rating">
-          {props.stars &&
-            props.stars.map((star, i) => {
+          {stars &&
+            stars.map((star, i) => {
               return (
                 <Star
                   key={i}

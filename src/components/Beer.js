@@ -23,6 +23,7 @@ export default function Beer(props) {
 
   const togglePopup = () => {
     setIsOpen(!isOpen);
+    props.applayRating();
   };
 
   return (
@@ -59,7 +60,6 @@ export default function Beer(props) {
         <Popup
           setShowNav={props.setShowNav}
           updateRating={props.updateRating}
-          stars={props.stars}
           item={props.item}
           beerDetails={beerDetails}
           handleClose={togglePopup}
