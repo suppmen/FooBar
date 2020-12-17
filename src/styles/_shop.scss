@@ -1,21 +1,3 @@
-// @mixin slideInAnimation {
-//   @for $i from 1 to 8 {
-//     &:nth-child(#{$i}) {
-//       animation: slide-in 0.5s cubic-bezier(0.5, 0, 0.5, 1) #{$i * 0.1}s both;
-//     }
-//   }
-// }
-
-.slide-in {
-  animation: slide-in 1s cubic-bezier(0.5, 0, 0.5, 1) 0.5s both;
-}
-
-@keyframes slide-in {
-  from {
-    transform: translateY(-0.7em) scale(0.5);
-    opacity: 0;
-  }
-}
 .Beer {
   z-index: 100;
 }
@@ -27,10 +9,6 @@
   padding-right: 15px;
   margin-bottom: 50px;
   margin-top: 50px;
-
-  // article {
-  //   @include slideInAnimation;
-  // }
 }
 
 .BeersList {
