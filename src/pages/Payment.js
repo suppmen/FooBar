@@ -26,6 +26,8 @@ export default function Payment(props) {
       <Form
         sendPostRequest={props.sendPostRequest}
         cartItems={props.cartItems}
+        setOrderItems={props.setOrderItems}
+        orderItems={props.orderItems}
       />
     </section>
   );

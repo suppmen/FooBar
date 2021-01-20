@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -10,6 +10,7 @@ import {
 import CartIcon from "../icon-componenets/Cart";
 import HomeIcon from "../icon-componenets/Home";
 import ShopIcon from "../icon-componenets/Shop";
+import DashboardIcon from "../icon-componenets/Dashboard";
 
 // Theme changer
 import { ThemeProvider } from "styled-components";
@@ -17,7 +18,7 @@ import { lightTheme, darkTheme } from "../modules/theme";
 import { GlobalStyles } from "../modules/global";
 import Toggle from "../components/Toggle";
 
-function Nav() {
+function Nav(props) {
   const [theme, setTheme] = useState("dark");
 
   // The function that toggles between themes
@@ -31,6 +32,10 @@ function Nav() {
     }
   };
 
+  function openSidebar() {
+    console.log("open!");
+    props.toggeleSidebar();
+  }
   return (
     <nav>
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -58,6 +63,9 @@ function Nav() {
           </NavLink>
         </li>
       </ul>
+      <div onClick={openSidebar} className="order-id">
+        {props.message && <h1>#{props.message.id}</h1>}
+      </div>
     </nav>
   );
 }
