@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/FooBar/static/css/main.c99a8464.chunk.css",
-    "main.js": "/FooBar/static/js/main.a15faa1d.chunk.js",
-    "main.js.map": "/FooBar/static/js/main.a15faa1d.chunk.js.map",
-    "runtime-main.js": "/FooBar/static/js/runtime-main.ee7cf6f6.js",
-    "runtime-main.js.map": "/FooBar/static/js/runtime-main.ee7cf6f6.js.map",
-    "static/js/2.f5299e01.chunk.js": "/FooBar/static/js/2.f5299e01.chunk.js",
-    "static/js/2.f5299e01.chunk.js.map": "/FooBar/static/js/2.f5299e01.chunk.js.map",
-    "index.html": "/FooBar/index.html",
-    "static/css/main.c99a8464.chunk.css.map": "/FooBar/static/css/main.c99a8464.chunk.css.map",
-    "static/js/2.f5299e01.chunk.js.LICENSE.txt": "/FooBar/static/js/2.f5299e01.chunk.js.LICENSE.txt",
-    "static/media/arrow.132e1dc7.svg": "/FooBar/static/media/arrow.132e1dc7.svg",
-    "static/media/beer-mug.09f86665.svg": "/FooBar/static/media/beer-mug.09f86665.svg",
-    "static/media/cart.0a22d203.svg": "/FooBar/static/media/cart.0a22d203.svg",
-    "static/media/long-arrow.d028148c.svg": "/FooBar/static/media/long-arrow.d028148c.svg",
-    "static/media/recycle-bin.83ccf2b8.svg": "/FooBar/static/media/recycle-bin.83ccf2b8.svg"
+    "main.css": "/fooba-order_app/static/css/main.c9aa7415.chunk.css",
+    "main.js": "/fooba-order_app/static/js/main.65478b6f.chunk.js",
+    "main.js.map": "/fooba-order_app/static/js/main.65478b6f.chunk.js.map",
+    "runtime-main.js": "/fooba-order_app/static/js/runtime-main.6fb4cfbe.js",
+    "runtime-main.js.map": "/fooba-order_app/static/js/runtime-main.6fb4cfbe.js.map",
+    "static/js/2.668f9d33.chunk.js": "/fooba-order_app/static/js/2.668f9d33.chunk.js",
+    "static/js/2.668f9d33.chunk.js.map": "/fooba-order_app/static/js/2.668f9d33.chunk.js.map",
+    "index.html": "/fooba-order_app/index.html",
+    "static/css/main.c9aa7415.chunk.css.map": "/fooba-order_app/static/css/main.c9aa7415.chunk.css.map",
+    "static/js/2.668f9d33.chunk.js.LICENSE.txt": "/fooba-order_app/static/js/2.668f9d33.chunk.js.LICENSE.txt",
+    "static/media/arrow.52801b6d.svg": "/fooba-order_app/static/media/arrow.52801b6d.svg",
+    "static/media/beer-mug.d6014a0e.svg": "/fooba-order_app/static/media/beer-mug.d6014a0e.svg",
+    "static/media/cart.622fdaa4.svg": "/fooba-order_app/static/media/cart.622fdaa4.svg",
+    "static/media/long-arrow.16542032.svg": "/fooba-order_app/static/media/long-arrow.16542032.svg",
+    "static/media/recycle-bin.83ccf2b8.svg": "/fooba-order_app/static/media/recycle-bin.83ccf2b8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.ee7cf6f6.js",
-    "static/js/2.f5299e01.chunk.js",
-    "static/css/main.c99a8464.chunk.css",
-    "static/js/main.a15faa1d.chunk.js"
+    "static/js/runtime-main.6fb4cfbe.js",
+    "static/js/2.668f9d33.chunk.js",
+    "static/css/main.c9aa7415.chunk.css",
+    "static/js/main.65478b6f.chunk.js"
   ]
 }
