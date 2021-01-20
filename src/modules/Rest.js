@@ -29,7 +29,7 @@ export function getData(callback1, callback2) {
     .then(getRatingArray(callback2));
 }
 
-export function postOrder(payload, callback) {
+export function postOrder(payload, callback1, callback2) {
   fetch("https://foo-bar-managers.herokuapp.com/order", {
     method: "post",
     headers: {
@@ -38,7 +38,11 @@ export function postOrder(payload, callback) {
     body: JSON.stringify(payload),
   })
     .then((res) => res.json())
-    .then((data) => callback(data));
+    .then((data) => {
+      console.log(payload);
+      callback1(data);
+    })
+    .then(callback2(payload));
 }
 
 export function getBeers(callback) {

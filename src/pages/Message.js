@@ -8,6 +8,7 @@ export default function Message(props) {
 
   function clearCart() {
     props.clearCart();
+    console.log(props.message, props.sentOrder);
   }
 
   return (
@@ -20,7 +21,7 @@ export default function Message(props) {
         <h1>Your order number is</h1>
         <span>#{props.message.id}</span>
 
-        <Link to="/">
+        <Link to="/shop">
           <button onClick={clearCart} className="finish-btn">
             Finish
           </button>

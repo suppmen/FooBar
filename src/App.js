@@ -15,6 +15,7 @@ import {
   Route,
   Redirect,
 } from "react-router-dom";
+import SideBar from "./components/SideBar";
 
 export default function App() {
   // Show or hide navigation bar state
@@ -31,11 +32,20 @@ export default function App() {
 
   // Items state to display beer list and add or remove from cart
   const [cartItems, setCartItems] = useState([]);
+  //
+  const [orderItems, setOrderItems] = useState([]);
 
+  const [sentOrder, setSentOrder] = useState([]);
   // Rating states
 
   // Rating beers array state from restdb database to show the live rating
   const [beersRating, setBeersRating] = useState([]);
+
+  const [open, setOpen] = useState(false);
+
+  function toggeleSidebar() {
+    setOpen(!open);
+  }
 
   // Updating rating after clicking one of the stars buttons
   function updateRating(beerName, newRating) {
@@ -90,7 +100,9 @@ export default function App() {
 
   function sendPostRequest(order) {
     //this function is called from Form
-    postOrder(order, sendMessage);
+    // setSentOrder(order);
+    console.log(order);
+    postOrder(order, sendMessage, setSentOrder);
   }
 
   // Showing notifications
@@ -141,9 +153,15 @@ export default function App() {
 
   return (
     <div className="App">
+      <SideBar
+        sentOrder={sentOrder}
+        message={message}
+        open={open}
+        toggeleSidebar={toggeleSidebar}
+      />
       <Router>
         <div className="nav">
-          {showNav && <Nav />}
+          {showNav && <Nav message={message} toggeleSidebar={toggeleSidebar} />}
 
           <Switch>
             <Route path="/message">
@@ -162,6 +180,8 @@ export default function App() {
                   setShowNav={setShowNav}
                   sendPostRequest={sendPostRequest}
                   cartItems={cartItems}
+                  setOrderItems={setOrderItems}
+                  orderItems={orderItems}
                 />
               )}
             </Route>
