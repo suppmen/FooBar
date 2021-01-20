@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/fooba-order_app/static/css/main.c9aa7415.chunk.css",
-    "main.js": "/fooba-order_app/static/js/main.65478b6f.chunk.js",
-    "main.js.map": "/fooba-order_app/static/js/main.65478b6f.chunk.js.map",
-    "runtime-main.js": "/fooba-order_app/static/js/runtime-main.6fb4cfbe.js",
-    "runtime-main.js.map": "/fooba-order_app/static/js/runtime-main.6fb4cfbe.js.map",
-    "static/js/2.668f9d33.chunk.js": "/fooba-order_app/static/js/2.668f9d33.chunk.js",
-    "static/js/2.668f9d33.chunk.js.map": "/fooba-order_app/static/js/2.668f9d33.chunk.js.map",
-    "index.html": "/fooba-order_app/index.html",
-    "static/css/main.c9aa7415.chunk.css.map": "/fooba-order_app/static/css/main.c9aa7415.chunk.css.map",
-    "static/js/2.668f9d33.chunk.js.LICENSE.txt": "/fooba-order_app/static/js/2.668f9d33.chunk.js.LICENSE.txt",
-    "static/media/arrow.52801b6d.svg": "/fooba-order_app/static/media/arrow.52801b6d.svg",
-    "static/media/beer-mug.d6014a0e.svg": "/fooba-order_app/static/media/beer-mug.d6014a0e.svg",
-    "static/media/cart.622fdaa4.svg": "/fooba-order_app/static/media/cart.622fdaa4.svg",
-    "static/media/long-arrow.16542032.svg": "/fooba-order_app/static/media/long-arrow.16542032.svg",
-    "static/media/recycle-bin.83ccf2b8.svg": "/fooba-order_app/static/media/recycle-bin.83ccf2b8.svg"
+    "main.css": "/nitzanmoise/foobar-order_app/static/css/main.c9aa7415.chunk.css",
+    "main.js": "/nitzanmoise/foobar-order_app/static/js/main.b1c1153f.chunk.js",
+    "main.js.map": "/nitzanmoise/foobar-order_app/static/js/main.b1c1153f.chunk.js.map",
+    "runtime-main.js": "/nitzanmoise/foobar-order_app/static/js/runtime-main.23cc70d5.js",
+    "runtime-main.js.map": "/nitzanmoise/foobar-order_app/static/js/runtime-main.23cc70d5.js.map",
+    "static/js/2.9560405a.chunk.js": "/nitzanmoise/foobar-order_app/static/js/2.9560405a.chunk.js",
+    "static/js/2.9560405a.chunk.js.map": "/nitzanmoise/foobar-order_app/static/js/2.9560405a.chunk.js.map",
+    "index.html": "/nitzanmoise/foobar-order_app/index.html",
+    "static/css/main.c9aa7415.chunk.css.map": "/nitzanmoise/foobar-order_app/static/css/main.c9aa7415.chunk.css.map",
+    "static/js/2.9560405a.chunk.js.LICENSE.txt": "/nitzanmoise/foobar-order_app/static/js/2.9560405a.chunk.js.LICENSE.txt",
+    "static/media/arrow.52801b6d.svg": "/nitzanmoise/foobar-order_app/static/media/arrow.52801b6d.svg",
+    "static/media/beer-mug.d6014a0e.svg": "/nitzanmoise/foobar-order_app/static/media/beer-mug.d6014a0e.svg",
+    "static/media/cart.622fdaa4.svg": "/nitzanmoise/foobar-order_app/static/media/cart.622fdaa4.svg",
+    "static/media/long-arrow.16542032.svg": "/nitzanmoise/foobar-order_app/static/media/long-arrow.16542032.svg",
+    "static/media/recycle-bin.83ccf2b8.svg": "/nitzanmoise/foobar-order_app/static/media/recycle-bin.83ccf2b8.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.6fb4cfbe.js",
-    "static/js/2.668f9d33.chunk.js",
+    "static/js/runtime-main.23cc70d5.js",
+    "static/js/2.9560405a.chunk.js",
     "static/css/main.c9aa7415.chunk.css",
-    "static/js/main.65478b6f.chunk.js"
+    "static/js/main.b1c1153f.chunk.js"
   ]
 }
