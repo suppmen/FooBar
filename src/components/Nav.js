@@ -10,7 +10,6 @@ import {
 import CartIcon from "../icon-componenets/Cart";
 import HomeIcon from "../icon-componenets/Home";
 import ShopIcon from "../icon-componenets/Shop";
-import DashboardIcon from "../icon-componenets/Dashboard";
 
 // Theme changer
 import { ThemeProvider } from "styled-components";
